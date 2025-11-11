@@ -9,6 +9,28 @@ st.set_page_config(page_title="OpenSAM", layout="wide")
 
 st.title("OpenSAM — Software Asset Management (Starter)")
 
+# First-time user welcome banner
+if "first_visit" not in st.session_state:
+    st.session_state.first_visit = True
+
+if st.session_state.first_visit:
+    st.success("""
+    👋 **Welcome to OpenSAM!** This is a live demo with sample data from a fictional company (Acme Corp).
+
+    **Quick Start Guide:**
+    - 💰 See that **$75K+ savings**? Those are unused seats you could reclaim
+    - ⚠️ **Red badges** = Action needed (overages, expirations, terminated users)
+    - 🔍 **Hover over ℹ️ icons** throughout for help on what each feature does
+    - 📊 **Use the sidebar** to explore other pages (Renewal Radar, Product Drilldown, Scenarios)
+
+    Click below to dismiss this message and start exploring!
+    """)
+    col_dismiss1, col_dismiss2, col_dismiss3 = st.columns([1, 1, 2])
+    with col_dismiss1:
+        if st.button("✅ Got it! Let me explore", use_container_width=True, type="primary"):
+            st.session_state.first_visit = False
+            st.rerun()
+
 # Demo disclaimer banner
 st.info("📊 **Demo Mode:** This is a live demo using sample data. Contact AppForge Labs for production deployment with your real data.", icon="ℹ️")
 
@@ -223,13 +245,31 @@ else:
 st.subheader("Filters")
 cols = st.columns(4)
 with cols[0]:
-    vendor_filter = st.multiselect("Vendor", sorted(sam["vendor"].dropna().unique().tolist()) if "vendor" in sam.columns else [])
+    vendor_filter = st.multiselect(
+        "Vendor",
+        sorted(sam["vendor"].dropna().unique().tolist()) if "vendor" in sam.columns else [],
+        help="🔍 Filter by software vendor (Microsoft, Salesforce, etc.)"
+    )
 with cols[1]:
-    risk_filter = st.selectbox("Risk", ["All", "Over-Used", "Expiring < 30d", "Inactive Users Present"])
+    risk_filter = st.selectbox(
+        "Risk",
+        ["All", "Over-Used", "Expiring < 30d", "Inactive Users Present"],
+        help="⚠️ Over-Used = compliance issue (more users than seats). Expiring = contract ends soon. Inactive = terminated users still have licenses."
+    )
 with cols[2]:
-    min_savings = st.number_input("Min Potential Savings ($)", value=0, min_value=0, step=50)
+    min_savings = st.number_input(
+        "Min Potential Savings ($)",
+        value=0,
+        min_value=0,
+        step=50,
+        help="💰 Only show products with at least this much savings potential (unused seats × unit cost)"
+    )
 with cols[3]:
-    only_subs = st.toggle("Subscriptions only", value=False)
+    only_subs = st.toggle(
+        "Subscriptions only",
+        value=False,
+        help="📅 Show only subscription licenses (exclude perpetual/one-time purchases)"
+    )
 
 st.caption("""
 **Risk Definitions:**
@@ -254,15 +294,53 @@ if risk_filter != "All":
 filtered = filtered[filtered["potential_savings_usd"] >= min_savings]
 
 # ============================================================================
+# How to Use This Page (Collapsible Guide)
+# ============================================================================
+
+with st.expander("🎯 How to Use This Page (Click to Expand)"):
+    col_guide1, col_guide2 = st.columns(2)
+    with col_guide1:
+        st.markdown("**🔍 What You're Seeing:**")
+        st.markdown("- **All software licenses** in your portfolio at a glance")
+        st.markdown("- **Red ⚠️ badges** highlight products that need attention")
+        st.markdown("- **Charts** show license breakdown, top vendors, and renewal timeline")
+        st.markdown("- **Green savings numbers** = money you could reclaim from unused seats")
+    with col_guide2:
+        st.markdown("**✅ What To Do:**")
+        st.markdown("1. Check **Action Items** alerts at the top (urgent issues)")
+        st.markdown("2. Use **Filters** to find specific problems (overages, expiring contracts)")
+        st.markdown("3. Review the **ELP table** below to see seat usage vs. purchased")
+        st.markdown("4. Look at **Inactive Users** to reclaim licenses immediately")
+        st.markdown("5. Download **CSV exports** at the bottom to share with your team")
+
+st.markdown("---")
+
+# ============================================================================
 # Portfolio Overview Metrics
 # ============================================================================
 
 st.subheader("Portfolio Overview")
 k1, k2, k3, k4 = st.columns(4)
-k1.metric("Vendors", filtered["vendor"].nunique() if "vendor" in filtered.columns else 0)
-k2.metric("Products", filtered["software"].nunique() if "software" in filtered.columns else 0)
-k3.metric("Total Seats", int(filtered["seats_purchased"].sum()) if "seats_purchased" in filtered.columns else 0)
-k4.metric("Potential Savings", fmt_currency(filtered["potential_savings_usd"].sum()))
+k1.metric(
+    "Vendors",
+    filtered["vendor"].nunique() if "vendor" in filtered.columns else 0,
+    help="🏢 Number of unique software vendors in your portfolio"
+)
+k2.metric(
+    "Products",
+    filtered["software"].nunique() if "software" in filtered.columns else 0,
+    help="📦 Number of distinct software products (licenses)"
+)
+k3.metric(
+    "Total Seats",
+    int(filtered["seats_purchased"].sum()) if "seats_purchased" in filtered.columns else 0,
+    help="💺 Total number of licenses purchased across all products"
+)
+k4.metric(
+    "Potential Savings",
+    fmt_currency(filtered["potential_savings_usd"].sum()),
+    help="💰 Annual savings if you remove all unused seats from subscription licenses. Perpetual licenses excluded."
+)
 
 st.caption("💡 **Potential Savings** counts subscription licenses only (perpetual licenses excluded). Perpetual licenses may still incur maintenance/support costs; savings shown exclude those.")
 
@@ -428,7 +506,7 @@ st.markdown("---")
 # ELP Table with Overage Badges
 # ============================================================================
 
-st.subheader("Effective License Position & Risks")
+st.subheader("Effective License Position & Risks", help="📊 ELP = Seats Purchased - Seats Used. Shows if you're over or under-deployed.")
 
 # Prepare display dataframe
 display_cols = ["software", "vendor", "license_type", "seats_purchased", "seats_used", "elp", "overage", "seats_unused"]
@@ -463,19 +541,21 @@ st.caption(f"📊 Active seats counted by: **{'unique users' if count_by_user el
 # Find Optimizations
 # ============================================================================
 
-st.subheader("Find Optimizations")
+st.subheader("Find Optimizations", help="💡 Identify wasted spend: terminated users with licenses, and active users who aren't using their software")
 
 # Inactive users consuming installs
 inactive = installs_users[installs_users["status"] == "terminated"].copy()
 st.markdown("**🔴 Inactive users still holding installs (Reclaim Now):**")
+st.caption("These users are terminated but still have software installed. You can reclaim these seats immediately for instant savings.")
 inactive_display_cols = ["user_email", "software", "device_id", "last_used_date"]
 if "department" in inactive.columns:
     inactive_display_cols.append("department")
 st.dataframe(inactive[inactive_display_cols], use_container_width=True)
-st.caption(f"💰 {len(inactive)} installations to reclaim from terminated users")
+st.caption(f"💰 {len(inactive)} installations to reclaim from terminated users → Remove their licenses to save money")
 
 # Low-usage candidates (no use in last 60 days)
 st.markdown("**⚠️ Low-usage installs (no activity in 60+ days):**")
+st.caption("These active users haven't used their software in 60+ days. Consider reaching out to confirm they still need it before renewal.")
 threshold = today - timedelta(days=60)
 low = installs_users[
     ((pd.to_datetime(installs_users["last_used_date"]) < pd.to_datetime(threshold)) |
@@ -486,13 +566,13 @@ low_display_cols = ["user_email", "software", "device_id", "last_used_date"]
 if "department" in low.columns:
     low_display_cols.append("department")
 st.dataframe(low[low_display_cols], use_container_width=True)
-st.caption(f"💡 {len(low)} low-usage installations (60+ days without activity)")
+st.caption(f"💡 {len(low)} low-usage installations → Contact these users to verify if they still need their licenses")
 
 # ============================================================================
 # Export
 # ============================================================================
 
-st.subheader("Export")
+st.subheader("Export", help="📁 Download data as CSV to share with stakeholders, import into Excel, or upload to ServiceNow")
 
 def to_csv(df):
     """Convert dataframe to CSV bytes."""
@@ -506,7 +586,8 @@ with col1:
         data=to_csv(filtered),
         file_name="opensam_elp_report.csv",
         mime="text/csv",
-        use_container_width=True
+        use_container_width=True,
+        help="Full license position data with all fields"
     )
 
 with col2:
@@ -515,7 +596,8 @@ with col2:
         data=to_csv(inactive),
         file_name="opensam_inactive_installs.csv",
         mime="text/csv",
-        use_container_width=True
+        use_container_width=True,
+        help="List of terminated users with licenses to reclaim"
     )
 
 with col3:
@@ -524,7 +606,8 @@ with col3:
         data=to_csv(low),
         file_name="opensam_low_usage.csv",
         mime="text/csv",
-        use_container_width=True
+        use_container_width=True,
+        help="Users with no activity in 60+ days"
     )
 
 st.caption("✅ All CSV exports respect current filter selections")
