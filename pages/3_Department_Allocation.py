@@ -8,6 +8,25 @@ st.set_page_config(page_title="Department Allocation - OpenSAM", layout="wide")
 st.title("Department Allocation")
 st.markdown("Analyze software license costs and utilization by department. Identify reclaim opportunities and cost allocation.")
 
+# How to Use This Page
+with st.expander("🎯 How to Use This Page (Click to Expand)"):
+    col_guide1, col_guide2 = st.columns(2)
+    with col_guide1:
+        st.markdown("**🔍 What You're Seeing:**")
+        st.markdown("- **Cost breakdown** by department (chargeback model)")
+        st.markdown("- **Reclaimable savings** from terminated users per department")
+        st.markdown("- **Share of total spend** for each department")
+        st.markdown("- **Software usage** details for selected department")
+    with col_guide2:
+        st.markdown("**✅ What To Do:**")
+        st.markdown("1. Review **department breakdown** table to see cost distribution")
+        st.markdown("2. Identify departments with high **reclaimable savings**")
+        st.markdown("3. Select a department to see **detailed software usage**")
+        st.markdown("4. Download **CSV exports** for budget allocation meetings")
+        st.markdown("5. Engage department heads to review licenses and reclaim unused seats")
+
+st.markdown("---")
+
 # ============================================================================
 # Formatting Helpers
 # ============================================================================

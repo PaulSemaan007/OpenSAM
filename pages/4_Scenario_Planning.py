@@ -8,6 +8,25 @@ st.set_page_config(page_title="Scenario Planning - OpenSAM", layout="wide")
 st.title("Scenario Planning")
 st.markdown("Model seat reduction scenarios and generate removal recommendations based on usage patterns.")
 
+# How to Use This Page
+with st.expander("🎯 How to Use This Page (Click to Expand)"):
+    col_guide1, col_guide2 = st.columns(2)
+    with col_guide1:
+        st.markdown("**🔍 What You're Seeing:**")
+        st.markdown("- **What-if analysis** for reducing seats before renewal")
+        st.markdown("- **Removal recommendations** sorted by least-recently-used")
+        st.markdown("- **Projected savings** from seat reduction")
+        st.markdown("- **Impact summary** showing new seat count and remaining users")
+    with col_guide2:
+        st.markdown("**✅ What To Do:**")
+        st.markdown("1. **Select a product** to model")
+        st.markdown("2. Use the **slider** to choose how many seats to reduce")
+        st.markdown("3. Review the **removal recommendations** (sorted by last usage)")
+        st.markdown("4. Check the **impact summary** for potential overages")
+        st.markdown("5. Download **CSV exports** to share with stakeholders before renewal")
+
+st.markdown("---")
+
 # ============================================================================
 # Formatting Helpers
 # ============================================================================

@@ -8,6 +8,25 @@ st.set_page_config(page_title="Renewal Radar - OpenSAM", layout="wide")
 st.title("Renewal Radar")
 st.markdown("Track contract expirations, renewal windows, and proactively manage license renewals.")
 
+# How to Use This Page
+with st.expander("🎯 How to Use This Page (Click to Expand)"):
+    col_guide1, col_guide2 = st.columns(2)
+    with col_guide1:
+        st.markdown("**🔍 What You're Seeing:**")
+        st.markdown("- **All contracts** with expiration dates")
+        st.markdown("- **🔴 Red alerts** for contracts expiring in ≤30 days")
+        st.markdown("- **🟡 Yellow alerts** for contracts in vendor notice windows")
+        st.markdown("- **Total annual spend** at risk if you miss renewals")
+    with col_guide2:
+        st.markdown("**✅ What To Do:**")
+        st.markdown("1. Check the **renewal schedule** table below")
+        st.markdown("2. Filter by **max days remaining** to focus on urgent renewals")
+        st.markdown("3. Click **Generate Alert Email** to create a renewal reminder")
+        st.markdown("4. Download **ServiceNow format** to import into your CMDB")
+        st.markdown("5. Contact vendors early to negotiate better terms")
+
+st.markdown("---")
+
 # ============================================================================
 # Formatting Helpers
 # ============================================================================
@@ -117,11 +136,12 @@ col1, col2, col3 = st.columns(3)
 with col1:
     vendor_filter = st.multiselect(
         "Vendor",
-        sorted(licenses_with_vendors["vendor"].dropna().unique().tolist()) if "vendor" in licenses_with_vendors.columns else []
+        sorted(licenses_with_vendors["vendor"].dropna().unique().tolist()) if "vendor" in licenses_with_vendors.columns else [],
+        help="🔍 Filter by software vendor"
     )
 
 with col2:
-    only_subs = st.toggle("Subscriptions only", value=False)
+    only_subs = st.toggle("Subscriptions only", value=False, help="📅 Show only subscription licenses (exclude perpetual)")
 
 with col3:
     max_days = st.slider(
@@ -130,7 +150,7 @@ with col3:
         max_value=365,
         value=90,
         step=30,
-        help="Show only contracts expiring within this many days"
+        help="⏱️ Show only contracts expiring within this many days (default: 90 days)"
     )
 
 st.caption("💡 **Notice Window**: Period before contract end when renewal action is typically required (vendor-specific).")
@@ -155,20 +175,20 @@ st.subheader("Key Metrics")
 k1, k2, k3, k4 = st.columns(4)
 
 with k1:
-    st.metric("Products", len(filtered))
+    st.metric("Products", len(filtered), help="📦 Number of products matching filters")
 
 with k2:
     expiring_count = filtered["expiring_30d"].sum()
-    st.metric("Expiring in 30d", expiring_count)
+    st.metric("Expiring in 30d", expiring_count, help="🔴 URGENT: Contracts expiring in ≤30 days")
 
 with k3:
     notice_count = filtered["in_notice_window"].sum()
-    st.metric("In Notice Window", notice_count)
+    st.metric("In Notice Window", notice_count, help="🟡 Contracts in vendor notice window (action needed soon)")
 
 with k4:
     # Total Annual Spend Proxy (subscriptions only)
     total_spend = filtered[filtered["is_subscription"] == True]["annual_spend_proxy"].sum()
-    st.metric("Total Annual Spend (Subs)", fmt_currency(total_spend))
+    st.metric("Total Annual Spend (Subs)", fmt_currency(total_spend), help="💰 Total annual spend for subscription licenses shown")
 
 st.caption("📊 **Total Annual Spend** includes subscription licenses only (perpetual licenses excluded).")
 

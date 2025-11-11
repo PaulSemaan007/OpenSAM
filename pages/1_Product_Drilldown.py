@@ -8,6 +8,25 @@ st.set_page_config(page_title="Product Drilldown - OpenSAM", layout="wide")
 st.title("Product Drilldown")
 st.markdown("Deep dive into license utilization, active installs, and reclaim opportunities for a specific product.")
 
+# How to Use This Page
+with st.expander("🎯 How to Use This Page (Click to Expand)"):
+    col_guide1, col_guide2 = st.columns(2)
+    with col_guide1:
+        st.markdown("**🔍 What You're Seeing:**")
+        st.markdown("- **Detailed analysis** for a single software product")
+        st.markdown("- **Three tables**: Active users, Terminated users (reclaim now), Low-usage users (60+ days)")
+        st.markdown("- **Immediate savings** from removing terminated users")
+        st.markdown("- **Potential savings** from optimizing low-usage accounts")
+    with col_guide2:
+        st.markdown("**✅ What To Do:**")
+        st.markdown("1. **Select a product** from the dropdown")
+        st.markdown("2. Review **Terminated Users** table for instant reclaim opportunities")
+        st.markdown("3. Check **Low-Usage** table for optimization candidates")
+        st.markdown("4. Download **CSV exports** to share with IT/managers")
+        st.markdown("5. Take action: Remove licenses, contact users, or keep monitoring")
+
+st.markdown("---")
+
 # ============================================================================
 # Formatting Helpers (Same as app.py)
 # ============================================================================
@@ -75,7 +94,12 @@ if not products:
     st.warning("⚠️ No products found in licenses.csv")
     st.stop()
 
-selected_product = st.selectbox("Select Product", products, key="product_selector")
+selected_product = st.selectbox(
+    "Select Product",
+    products,
+    key="product_selector",
+    help="🔍 Choose a software product to see detailed usage and reclaim opportunities"
+)
 
 # ============================================================================
 # Filter Data for Selected Product
@@ -141,16 +165,16 @@ st.subheader(f"📊 Metrics: {selected_product}")
 
 col1, col2, col3, col4, col5 = st.columns(5)
 with col1:
-    st.metric("Seats Purchased", seats_purchased)
+    st.metric("Seats Purchased", seats_purchased, help="💺 Total licenses purchased for this product")
 with col2:
-    st.metric("Active Installs", active_installs_count)
+    st.metric("Active Installs", active_installs_count, help="✅ Currently active users/devices")
 with col3:
-    st.metric("Unused Seats", unused_seats)
+    st.metric("Unused Seats", unused_seats, help="📉 Purchased seats that aren't being used")
 with col4:
     delta_label = "⚠️ Risk" if overage > 0 else None
-    st.metric("Overage", overage, delta=delta_label)
+    st.metric("Overage", overage, delta=delta_label, help="⚠️ Active users BEYOND purchased seats (compliance risk!)")
 with col5:
-    st.metric("Potential Savings", fmt_currency(potential_savings))
+    st.metric("Potential Savings", fmt_currency(potential_savings), help="💰 Annual savings if you remove unused seats (subscription licenses only)")
 
 st.caption(f"💡 **License Type:** {license_type} | **Savings apply to subscriptions only.** Perpetual licenses may still incur maintenance/support costs; savings shown exclude those.")
 st.caption(f"📊 Active seats counted by: **{'unique users' if count_by_user else 'unique devices'}** (change in home page sidebar)")
@@ -235,7 +259,7 @@ else:
 st.markdown("---")
 
 # Table 1: Active Installs
-st.subheader("✅ Active Installs")
+st.subheader("✅ Active Installs", help="👥 Users currently using this software (status = active)")
 st.markdown(f"*{len(active_installs_table)} active installations*")
 st.dataframe(active_installs_table, use_container_width=True)
 
@@ -248,14 +272,16 @@ st.download_button(
     data=to_csv(active_installs_table),
     file_name=f"{selected_product}_active_installs.csv",
     mime="text/csv",
-    key="download_active"
+    key="download_active",
+    help="Export list of active users for this product"
 )
 
 st.markdown("---")
 
 # Table 2: Terminated Users (Reclaim Now)
-st.subheader("🔴 Terminated Users (Reclaim Now)")
+st.subheader("🔴 Terminated Users (Reclaim Now)", help="💰 Ex-employees who still have licenses - reclaim these immediately for instant savings")
 st.markdown(f"*{len(terminated_users_table)} installations to reclaim*")
+st.caption("These users are terminated but still have licenses assigned. Remove their access immediately to reclaim the seats.")
 if not terminated_users_table.empty and immediate_savings > 0:
     st.info(f"💰 **Immediate Savings:** {fmt_currency(immediate_savings)} ({license_type})")
 elif not terminated_users_table.empty and not is_subscription:
@@ -268,14 +294,16 @@ st.download_button(
     data=to_csv(terminated_users_table),
     file_name=f"{selected_product}_terminated_users.csv",
     mime="text/csv",
-    key="download_terminated"
+    key="download_terminated",
+    help="Export list of terminated users to share with IT for license removal"
 )
 
 st.markdown("---")
 
 # Table 3: Low-Usage (No activity 60+ days)
-st.subheader("⚠️ Low-Usage (No activity 60+ days)")
+st.subheader("⚠️ Low-Usage (No activity 60+ days)", help="📊 Active users who haven't used this software in 60+ days - candidates for optimization")
 st.markdown(f"*{len(low_usage_table)} low-usage installations (active users only)*")
+st.caption("These active users haven't used the software in 60+ days. Contact them to verify if they still need it before renewal.")
 if not low_usage_table.empty and low_usage_savings > 0:
     st.warning(f"💡 **Potential Savings from Optimization:** {fmt_currency(low_usage_savings)} ({license_type})")
 elif not low_usage_table.empty and not is_subscription:
@@ -288,7 +316,8 @@ st.download_button(
     data=to_csv(low_usage_table),
     file_name=f"{selected_product}_low_usage.csv",
     mime="text/csv",
-    key="download_low_usage"
+    key="download_low_usage",
+    help="Export low-usage users to follow up and verify if they still need licenses"
 )
 
 # ============================================================================
