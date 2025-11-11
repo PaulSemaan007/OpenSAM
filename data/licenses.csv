@@ -1,0 +1,10 @@
+software,vendor,license_type,unit_cost_usd,seats_purchased,contract_start,contract_end,license_key
+Microsoft 365 E3,Microsoft,subscription,36,100,2025-01-01,2025-12-31,MSFT-XXXX-E3
+Visio Plan 2,Microsoft,subscription,15,25,2025-03-01,2026-02-28,VISO-YYYY-P2
+SAP S/4HANA,SAP,perpetual,2500,10,2024-07-01,2029-06-30,SAP-AAAA-ERP
+Tableau Creator,Salesforce,subscription,70,12,2025-05-01,2026-04-30,TABL-ZZZZ-CRT
+Zoom Pro,Zoom,subscription,12,50,2025-01-15,2026-01-14,ZOOM-PRO-KEY
+Slack Enterprise,Slack,subscription,8,5,2025-01-01,2025-12-10,SLACK-ENT-2025
+Adobe Acrobat Pro,Adobe,perpetual,180,15,2024-01-01,2029-12-31,ADOBE-PERP-001
+Jira Software,Atlassian,subscription,10,20,2024-06-01,2025-12-25,JIRA-SW-2025
+GitHub Enterprise,GitHub,subscription,21,100,2025-01-01,,GITHUB-ENT-NODATE

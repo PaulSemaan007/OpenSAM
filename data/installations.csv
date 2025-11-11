@@ -1,0 +1,23 @@
+device_id,user_email,software,version,install_date,last_used_date
+LAP-001,ava@acme.com,Microsoft 365 E3,16.0,2025-01-02,2025-11-02
+LAP-002,ben@acme.com,Microsoft 365 E3,16.0,2025-01-02,2025-11-05
+LAP-003,carol@acme.com,Microsoft 365 E3,16.0,2025-01-10,2025-05-12
+LAP-004,dee@acme.com,Visio Plan 2,2025.3,2025-03-03,2025-11-06
+LAP-005,eli@acme.com,Tableau Creator,2024.4,2025-05-02,2025-05-20
+LAP-006,fran@acme.com,Zoom Pro,6.1,2025-01-20,2025-11-01
+LAP-007,gus@acme.com,Zoom Pro,6.1,2025-01-20,2025-02-10
+LAP-008,hen@acme.com,Visio Plan 2,2025.3,2025-03-05,2025-09-09
+LAP-009,ivy@acme.com,SAP S/4HANA,2023,2024-07-10,2025-02-02
+LAP-010,jay@acme.com,Microsoft 365 E3,16.0,2025-01-02,2025-01-30
+LAP-011,kelly@acme.com,Slack Enterprise,5.1,2025-01-05,2025-11-05
+LAP-012,leo@acme.com,Slack Enterprise,5.1,2025-01-06,2025-11-06
+LAP-013,maya@acme.com,Slack Enterprise,5.1,2025-01-07,2025-11-07
+LAP-014,nina@acme.com,Slack Enterprise,5.1,2025-01-08,2025-11-08
+LAP-015,oscar@acme.com,Slack Enterprise,5.1,2025-01-09,2025-11-09
+LAP-016,paul@acme.com,Slack Enterprise,5.1,2025-01-10,2025-11-10
+LAP-017,quinn@acme.com,Slack Enterprise,5.1,2025-01-11,2025-11-08
+LAP-018,rose@acme.com,Slack Enterprise,5.1,2025-01-12,2025-11-09
+LAP-019,sam@acme.com,Adobe Acrobat Pro,2024,2024-02-01,2025-11-05
+LAP-020,tina@acme.com,Jira Software,10.1,2024-07-01,2025-08-01
+LAP-021,uma@acme.com,Jira Software,10.1,2024-07-05,2025-08-05
+LAP-022,vic@acme.com,GitHub Enterprise,3.10,2025-01-15,2025-11-09
