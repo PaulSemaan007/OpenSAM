@@ -8,7 +8,19 @@
       "Bash(.venv/Scripts/python.exe:*)",
       "Bash(.venv_new/Scripts/python.exe -m pip install:*)",
       "Bash(.venv_new/Scripts/python.exe:*)",
-      "Bash(move:*)"
+      "Bash(move:*)",
+      "Bash(timeout:*)",
+      "Bash(=5.18.0)",
+      "Bash(ping:*)",
+      "Bash(nul)",
+      "Bash(del \"=5.18.0\")",
+      "Bash(del nul)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nEnhance OpenSAM with richer data and job traceability\n\n- Expanded sample data: 9→40 products, 23→130 users, 22→317 installations\n- Added plotly charts (pie, bar, timeline) and smart alerts banner\n- Created .job-reference/ folder with complete job posting traceability\n- Updated README with \"Built from Real Requirements\" section\n\nGenerated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git push:*)",
+      "Bash(git commit:*)",
+      "Bash(git mv:*)",
+      "Bash(del:*)"
     ],
     "deny": [],
     "ask": []
