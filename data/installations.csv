@@ -1,23 +1,318 @@
 device_id,user_email,software,version,install_date,last_used_date
-LAP-001,ava@acme.com,Microsoft 365 E3,16.0,2025-01-02,2025-11-02
-LAP-002,ben@acme.com,Microsoft 365 E3,16.0,2025-01-02,2025-11-05
-LAP-003,carol@acme.com,Microsoft 365 E3,16.0,2025-01-10,2025-05-12
-LAP-004,dee@acme.com,Visio Plan 2,2025.3,2025-03-03,2025-11-06
-LAP-005,eli@acme.com,Tableau Creator,2024.4,2025-05-02,2025-05-20
-LAP-006,fran@acme.com,Zoom Pro,6.1,2025-01-20,2025-11-01
-LAP-007,gus@acme.com,Zoom Pro,6.1,2025-01-20,2025-02-10
-LAP-008,hen@acme.com,Visio Plan 2,2025.3,2025-03-05,2025-09-09
-LAP-009,ivy@acme.com,SAP S/4HANA,2023,2024-07-10,2025-02-02
-LAP-010,jay@acme.com,Microsoft 365 E3,16.0,2025-01-02,2025-01-30
-LAP-011,kelly@acme.com,Slack Enterprise,5.1,2025-01-05,2025-11-05
-LAP-012,leo@acme.com,Slack Enterprise,5.1,2025-01-06,2025-11-06
-LAP-013,maya@acme.com,Slack Enterprise,5.1,2025-01-07,2025-11-07
-LAP-014,nina@acme.com,Slack Enterprise,5.1,2025-01-08,2025-11-08
-LAP-015,oscar@acme.com,Slack Enterprise,5.1,2025-01-09,2025-11-09
-LAP-016,paul@acme.com,Slack Enterprise,5.1,2025-01-10,2025-11-10
-LAP-017,quinn@acme.com,Slack Enterprise,5.1,2025-01-11,2025-11-08
-LAP-018,rose@acme.com,Slack Enterprise,5.1,2025-01-12,2025-11-09
-LAP-019,sam@acme.com,Adobe Acrobat Pro,2024,2024-02-01,2025-11-05
-LAP-020,tina@acme.com,Jira Software,10.1,2024-07-01,2025-08-01
-LAP-021,uma@acme.com,Jira Software,10.1,2024-07-05,2025-08-05
-LAP-022,vic@acme.com,GitHub Enterprise,3.10,2025-01-15,2025-11-09
+LAP-001,alex.rivera@acme.com,Microsoft 365 E3,16.0,2025-01-02,2025-11-09
+LAP-002,ben.kim@acme.com,Microsoft 365 E3,16.0,2025-01-02,2025-11-09
+LAP-003,carol.chen@acme.com,Microsoft 365 E3,16.0,2025-01-03,2025-11-08
+LAP-004,diana.patel@acme.com,Microsoft 365 E3,16.0,2025-01-04,2025-11-09
+LAP-005,evan.johnson@acme.com,Microsoft 365 E3,16.0,2025-01-05,2025-11-07
+LAP-006,fiona.walsh@acme.com,Microsoft 365 E3,16.0,2025-01-06,2025-11-09
+LAP-007,greg.martinez@acme.com,Microsoft 365 E3,16.0,2025-01-07,2025-11-08
+LAP-008,hannah.lee@acme.com,Microsoft 365 E3,16.0,2025-01-08,2025-11-09
+LAP-009,ian.brooks@acme.com,Microsoft 365 E3,16.0,2025-01-09,2025-11-07
+LAP-010,jade.nguyen@acme.com,Microsoft 365 E3,16.0,2025-01-10,2025-11-09
+LAP-011,kevin.garcia@acme.com,Microsoft 365 E3,16.0,2025-01-11,2025-08-15
+LAP-012,laura.brown@acme.com,Microsoft 365 E3,16.0,2025-01-12,2025-11-09
+LAP-013,maya.singh@acme.com,Microsoft 365 E3,16.0,2025-01-13,2025-11-08
+LAP-014,noah.davis@acme.com,Microsoft 365 E3,16.0,2025-01-14,2025-11-09
+LAP-015,olivia.wilson@acme.com,Microsoft 365 E3,16.0,2025-01-15,2025-11-07
+LAP-016,maria.nelson@acme.com,Microsoft 365 E3,16.0,2025-01-16,2025-11-09
+LAP-017,nathan.carter@acme.com,Microsoft 365 E3,16.0,2025-01-17,2025-11-08
+LAP-018,oscar.mitchell@acme.com,Microsoft 365 E3,16.0,2025-01-18,2025-11-09
+LAP-019,penny.roberts@acme.com,Microsoft 365 E3,16.0,2025-01-19,2025-11-07
+LAP-020,ryan.turner@acme.com,Microsoft 365 E3,16.0,2025-01-20,2025-11-09
+LAP-021,amy.morris@acme.com,Microsoft 365 E3,16.0,2025-01-21,2025-11-08
+LAP-022,blake.rogers@acme.com,Microsoft 365 E3,16.0,2025-01-22,2025-11-09
+LAP-023,clara.reed@acme.com,Microsoft 365 E3,16.0,2025-01-23,2025-11-07
+LAP-024,derek.cook@acme.com,Microsoft 365 E3,16.0,2025-01-24,2025-11-09
+LAP-025,eliza.morgan@acme.com,Microsoft 365 E3,16.0,2025-01-25,2025-11-08
+LAP-026,kelly.richardson@acme.com,Microsoft 365 E3,16.0,2025-01-26,2025-11-09
+LAP-027,leon.cox@acme.com,Microsoft 365 E3,16.0,2025-01-27,2025-11-07
+LAP-028,mia.howard@acme.com,Microsoft 365 E3,16.0,2025-01-28,2025-11-09
+LAP-029,nora.ward@acme.com,Microsoft 365 E3,16.0,2025-01-29,2025-11-08
+LAP-030,owen.torres@acme.com,Microsoft 365 E3,16.0,2025-01-30,2025-11-09
+LAP-031,alice.foster@acme.com,Microsoft 365 E3,16.0,2025-02-01,2025-11-07
+LAP-032,bobby.jenkins@acme.com,Microsoft 365 E3,16.0,2025-02-02,2025-11-09
+LAP-033,chloe.perry@acme.com,Microsoft 365 E3,16.0,2025-02-03,2025-11-08
+LAP-034,drew.powell@acme.com,Microsoft 365 E3,16.0,2025-02-04,2025-11-09
+LAP-035,ivy.washington@acme.com,Microsoft 365 E3,16.0,2025-02-05,2025-11-07
+LAP-036,james.butler@acme.com,Microsoft 365 E3,16.0,2025-02-06,2025-11-09
+LAP-037,kara.simmons@acme.com,Microsoft 365 E3,16.0,2025-02-07,2025-11-08
+LAP-038,luke.foster@acme.com,Microsoft 365 E3,16.0,2025-02-08,2025-11-09
+LAP-039,steve.hayes@acme.com,Microsoft 365 E3,16.0,2025-02-09,2025-11-07
+LAP-040,tanya.myers@acme.com,Microsoft 365 E3,16.0,2025-02-10,2025-11-09
+LAP-041,angela.cole@acme.com,Microsoft 365 E3,16.0,2025-02-11,2025-11-08
+LAP-042,brian.west@acme.com,Microsoft 365 E3,16.0,2025-02-12,2025-11-09
+LAP-043,cody.jordan@acme.com,Microsoft 365 E3,16.0,2025-02-13,2025-11-07
+LAP-044,donna.owens@acme.com,Microsoft 365 E3,16.0,2025-02-14,2025-11-09
+LAP-045,keith.cruz@acme.com,Microsoft 365 E3,16.0,2025-02-15,2025-11-08
+LAP-046,linda.marshall@acme.com,Microsoft 365 E3,16.0,2025-02-16,2025-11-09
+LAP-047,marcus.ortiz@acme.com,Microsoft 365 E3,16.0,2025-02-17,2025-11-07
+LAP-048,quinton.wells@acme.com,Microsoft 365 E3,16.0,2025-02-18,2025-11-09
+LAP-049,rita.webb@acme.com,Microsoft 365 E3,16.0,2025-02-19,2025-11-08
+LAP-050,sidney.simpson@acme.com,Microsoft 365 E3,16.0,2025-02-20,2025-11-09
+LAP-051,paul.anderson@acme.com,Microsoft 365 E5,16.0,2025-02-02,2025-11-09
+LAP-052,quinn.taylor@acme.com,Microsoft 365 E5,16.0,2025-02-03,2025-11-08
+LAP-053,rachel.moore@acme.com,Microsoft 365 E5,16.0,2025-02-04,2025-11-09
+LAP-054,sam.jackson@acme.com,Microsoft 365 E5,16.0,2025-02-05,2025-11-07
+LAP-055,tara.white@acme.com,Microsoft 365 E5,16.0,2025-02-06,2025-11-09
+LAP-056,victor.lopez@acme.com,Microsoft 365 E5,16.0,2025-02-07,2025-11-08
+LAP-057,wendy.clark@acme.com,Microsoft 365 E5,16.0,2025-02-08,2025-11-09
+LAP-058,xavier.hall@acme.com,Microsoft 365 E5,16.0,2025-02-09,2025-11-07
+LAP-059,yara.kumar@acme.com,Microsoft 365 E5,16.0,2025-02-10,2025-11-09
+LAP-060,zoe.martinez@acme.com,Microsoft 365 E5,16.0,2025-02-11,2025-11-08
+LAP-061,adam.chen@acme.com,Microsoft 365 E5,16.0,2025-02-12,2025-11-09
+LAP-062,bella.jones@acme.com,Microsoft 365 E5,16.0,2025-02-13,2025-11-07
+LAP-063,carlos.smith@acme.com,Microsoft 365 E5,16.0,2025-02-14,2025-11-09
+LAP-064,dana.lewis@acme.com,Microsoft 365 E5,16.0,2025-02-15,2025-11-08
+LAP-065,eric.walker@acme.com,Microsoft 365 E5,16.0,2025-02-16,2025-11-09
+LAP-066,alex.rivera@acme.com,Visio Plan 2,2025.3,2025-03-03,2025-11-06
+LAP-067,ben.kim@acme.com,Visio Plan 2,2025.3,2025-03-04,2025-11-07
+LAP-068,carol.chen@acme.com,Visio Plan 2,2025.3,2025-03-05,2025-11-08
+LAP-069,diana.patel@acme.com,Visio Plan 2,2025.3,2025-03-06,2025-11-09
+LAP-070,evan.johnson@acme.com,Visio Plan 2,2025.3,2025-03-07,2025-08-20
+LAP-071,fiona.walsh@acme.com,Power BI Pro,3.0,2025-01-16,2025-11-09
+LAP-072,greg.martinez@acme.com,Power BI Pro,3.0,2025-01-17,2025-11-08
+LAP-073,hannah.lee@acme.com,Power BI Pro,3.0,2025-01-18,2025-11-09
+LAP-074,kelly.richardson@acme.com,Power BI Pro,3.0,2025-01-19,2025-11-07
+LAP-075,leon.cox@acme.com,Power BI Pro,3.0,2025-01-20,2025-11-09
+LAP-076,mia.howard@acme.com,Power BI Pro,3.0,2025-01-21,2025-11-08
+LAP-077,nora.ward@acme.com,Power BI Pro,3.0,2025-01-22,2025-11-09
+LAP-078,owen.torres@acme.com,Power BI Pro,3.0,2025-01-23,2025-11-07
+LAP-079,paige.peterson@acme.com,Power BI Pro,3.0,2025-01-24,2025-11-09
+LAP-080,quentin.gray@acme.com,Power BI Pro,3.0,2025-01-25,2025-11-08
+LAP-081,ruby.ramirez@acme.com,Power BI Pro,3.0,2025-01-26,2025-11-09
+LAP-082,seth.james@acme.com,Power BI Pro,3.0,2025-01-27,2025-11-07
+LAP-083,tina.watson@acme.com,Power BI Pro,3.0,2025-01-28,2025-11-09
+LAP-084,ulysses.brooks@acme.com,Power BI Pro,3.0,2025-01-29,2025-11-08
+LAP-085,alex.rivera@acme.com,Azure DevOps,2024.1,2025-04-02,2025-11-09
+LAP-086,ben.kim@acme.com,Azure DevOps,2024.1,2025-04-03,2025-11-08
+LAP-087,carol.chen@acme.com,Azure DevOps,2024.1,2025-04-04,2025-11-09
+LAP-088,diana.patel@acme.com,Azure DevOps,2024.1,2025-04-05,2025-11-07
+LAP-089,evan.johnson@acme.com,Azure DevOps,2024.1,2025-04-06,2025-11-09
+LAP-090,fiona.walsh@acme.com,Azure DevOps,2024.1,2025-04-07,2025-11-08
+LAP-091,greg.martinez@acme.com,Azure DevOps,2024.1,2025-04-08,2025-11-09
+LAP-092,hannah.lee@acme.com,Azure DevOps,2024.1,2025-04-09,2025-11-07
+LAP-093,ian.brooks@acme.com,Azure DevOps,2024.1,2025-04-10,2025-11-09
+LAP-094,jade.nguyen@acme.com,Azure DevOps,2024.1,2025-04-11,2025-11-08
+LAP-095,laura.brown@acme.com,Azure DevOps,2024.1,2025-04-12,2025-11-09
+LAP-096,maya.singh@acme.com,Azure DevOps,2024.1,2025-04-13,2025-11-07
+LAP-097,noah.davis@acme.com,Azure DevOps,2024.1,2025-04-14,2025-11-09
+LAP-098,olivia.wilson@acme.com,Azure DevOps,2024.1,2025-04-15,2025-11-08
+LAP-099,paul.anderson@acme.com,Azure DevOps,2024.1,2025-04-16,2025-11-09
+LAP-100,quinn.taylor@acme.com,Azure DevOps,2024.1,2025-04-17,2025-11-07
+LAP-101,ivy.washington@acme.com,SAP S/4HANA,2023,2024-07-10,2025-02-02
+LAP-102,james.butler@acme.com,SAP S/4HANA,2023,2024-07-11,2025-03-15
+LAP-103,kara.simmons@acme.com,SAP S/4HANA,2023,2024-07-12,2025-10-28
+LAP-104,luke.foster@acme.com,SAP S/4HANA,2023,2024-07-13,2025-11-05
+LAP-105,molly.gonzales@acme.com,SAP S/4HANA,2023,2024-07-14,2025-11-08
+LAP-106,nick.bryant@acme.com,SAP S/4HANA,2023,2024-07-15,2025-11-09
+LAP-107,olive.alexander@acme.com,SAP S/4HANA,2023,2024-07-16,2025-11-07
+LAP-108,peter.russell@acme.com,SAP S/4HANA,2023,2024-07-17,2025-11-09
+LAP-109,kelly.richardson@acme.com,SAP Analytics Cloud,2025.1,2025-05-02,2025-11-08
+LAP-110,leon.cox@acme.com,SAP Analytics Cloud,2025.1,2025-05-03,2025-11-09
+LAP-111,mia.howard@acme.com,SAP Analytics Cloud,2025.1,2025-05-04,2025-11-07
+LAP-112,nora.ward@acme.com,SAP Analytics Cloud,2025.1,2025-05-05,2025-11-09
+LAP-113,owen.torres@acme.com,SAP Analytics Cloud,2025.1,2025-05-06,2025-11-08
+LAP-114,paige.peterson@acme.com,SAP Analytics Cloud,2025.1,2025-05-07,2025-11-09
+LAP-115,quentin.gray@acme.com,SAP Analytics Cloud,2025.1,2025-05-08,2025-11-07
+LAP-116,ruby.ramirez@acme.com,SAP Analytics Cloud,2025.1,2025-05-09,2025-11-09
+LAP-117,maria.nelson@acme.com,Salesforce Sales Cloud,Spring25,2025-01-11,2025-11-09
+LAP-118,nathan.carter@acme.com,Salesforce Sales Cloud,Spring25,2025-01-12,2025-11-08
+LAP-119,oscar.mitchell@acme.com,Salesforce Sales Cloud,Spring25,2025-01-13,2025-11-09
+LAP-120,penny.roberts@acme.com,Salesforce Sales Cloud,Spring25,2025-01-14,2025-11-07
+LAP-121,ryan.turner@acme.com,Salesforce Sales Cloud,Spring25,2025-01-15,2025-11-09
+LAP-122,sophie.phillips@acme.com,Salesforce Sales Cloud,Spring25,2025-01-16,2025-11-08
+LAP-123,tyler.campbell@acme.com,Salesforce Sales Cloud,Spring25,2025-01-17,2025-11-09
+LAP-124,violet.parker@acme.com,Salesforce Sales Cloud,Spring25,2025-01-18,2025-11-07
+LAP-125,wade.evans@acme.com,Salesforce Sales Cloud,Spring25,2025-01-19,2025-11-09
+LAP-126,xander.edwards@acme.com,Salesforce Sales Cloud,Spring25,2025-01-20,2025-11-08
+LAP-127,yvonne.collins@acme.com,Salesforce Sales Cloud,Spring25,2025-01-21,2025-11-09
+LAP-128,zack.stewart@acme.com,Salesforce Sales Cloud,Spring25,2025-01-22,2025-11-07
+LAP-129,angela.cole@acme.com,Salesforce Service Cloud,Spring25,2025-03-16,2025-11-09
+LAP-130,brian.west@acme.com,Salesforce Service Cloud,Spring25,2025-03-17,2025-11-08
+LAP-131,cody.jordan@acme.com,Salesforce Service Cloud,Spring25,2025-03-18,2025-11-09
+LAP-132,donna.owens@acme.com,Salesforce Service Cloud,Spring25,2025-03-19,2025-11-07
+LAP-133,eugene.reynolds@acme.com,Salesforce Service Cloud,Spring25,2025-03-20,2025-11-09
+LAP-134,francine.fisher@acme.com,Salesforce Service Cloud,Spring25,2025-03-21,2025-11-08
+LAP-135,glenn.ellis@acme.com,Salesforce Service Cloud,Spring25,2025-03-22,2025-11-09
+LAP-136,heidi.harrison@acme.com,Salesforce Service Cloud,Spring25,2025-03-23,2025-11-07
+LAP-137,ivan.gibson@acme.com,Salesforce Service Cloud,Spring25,2025-03-24,2025-11-09
+LAP-138,jenna.mcdonald@acme.com,Salesforce Service Cloud,Spring25,2025-03-25,2025-11-08
+LAP-139,kelly.richardson@acme.com,Tableau Creator,2024.4,2025-05-02,2025-05-20
+LAP-140,leon.cox@acme.com,Tableau Creator,2024.4,2025-05-03,2025-06-15
+LAP-141,mia.howard@acme.com,Tableau Creator,2024.4,2025-05-04,2025-11-08
+LAP-142,nora.ward@acme.com,Tableau Creator,2024.4,2025-05-05,2025-11-09
+LAP-143,owen.torres@acme.com,Tableau Creator,2024.4,2025-05-06,2025-11-07
+LAP-144,paige.peterson@acme.com,Tableau Creator,2024.4,2025-05-07,2025-11-09
+LAP-145,alex.rivera@acme.com,Slack Enterprise,5.1,2025-01-05,2025-11-09
+LAP-146,ben.kim@acme.com,Slack Enterprise,5.1,2025-01-06,2025-11-08
+LAP-147,carol.chen@acme.com,Slack Enterprise,5.1,2025-01-07,2025-11-09
+LAP-148,diana.patel@acme.com,Slack Enterprise,5.1,2025-01-08,2025-11-07
+LAP-149,evan.johnson@acme.com,Slack Enterprise,5.1,2025-01-09,2025-11-09
+LAP-150,fiona.walsh@acme.com,Slack Enterprise,5.1,2025-01-10,2025-11-08
+LAP-151,greg.martinez@acme.com,Slack Enterprise,5.1,2025-01-11,2025-11-09
+LAP-152,hannah.lee@acme.com,Slack Enterprise,5.1,2025-01-12,2025-11-07
+LAP-153,ian.brooks@acme.com,Slack Enterprise,5.1,2025-01-13,2025-11-09
+LAP-154,jade.nguyen@acme.com,Slack Enterprise,5.1,2025-01-14,2025-11-08
+LAP-155,uma.shah@acme.com,Slack Enterprise,5.1,2025-01-15,2025-08-20
+LAP-156,alex.rivera@acme.com,Zoom Pro,6.1,2025-01-20,2025-11-09
+LAP-157,ben.kim@acme.com,Zoom Pro,6.1,2025-01-21,2025-11-08
+LAP-158,carol.chen@acme.com,Zoom Pro,6.1,2025-01-22,2025-11-09
+LAP-159,diana.patel@acme.com,Zoom Pro,6.1,2025-01-23,2025-11-07
+LAP-160,evan.johnson@acme.com,Zoom Pro,6.1,2025-01-24,2025-11-09
+LAP-161,maria.nelson@acme.com,Zoom Pro,6.1,2025-01-25,2025-11-08
+LAP-162,nathan.carter@acme.com,Zoom Pro,6.1,2025-01-26,2025-11-09
+LAP-163,oscar.mitchell@acme.com,Zoom Pro,6.1,2025-01-27,2025-11-07
+LAP-164,penny.roberts@acme.com,Zoom Pro,6.1,2025-01-28,2025-11-09
+LAP-165,ryan.turner@acme.com,Zoom Pro,6.1,2025-01-29,2025-11-08
+LAP-166,amy.morris@acme.com,Zoom Pro,6.1,2025-01-30,2025-11-09
+LAP-167,blake.rogers@acme.com,Zoom Pro,6.1,2025-01-31,2025-02-10
+LAP-168,clara.reed@acme.com,Zoom Webinar,6.2,2025-02-02,2025-11-09
+LAP-169,derek.cook@acme.com,Zoom Webinar,6.2,2025-02-03,2025-11-08
+LAP-170,eliza.morgan@acme.com,Zoom Webinar,6.2,2025-02-04,2025-11-09
+LAP-171,frank.bell@acme.com,Zoom Webinar,6.2,2025-02-05,2025-11-07
+LAP-172,grace.murphy@acme.com,Zoom Webinar,6.2,2025-02-06,2025-11-09
+LAP-173,alice.foster@acme.com,Adobe Creative Cloud,2025.1,2025-06-02,2025-11-09
+LAP-174,bobby.jenkins@acme.com,Adobe Creative Cloud,2025.1,2025-06-03,2025-11-08
+LAP-175,chloe.perry@acme.com,Adobe Creative Cloud,2025.1,2025-06-04,2025-11-09
+LAP-176,drew.powell@acme.com,Adobe Creative Cloud,2025.1,2025-06-05,2025-11-07
+LAP-177,emma.long@acme.com,Adobe Creative Cloud,2025.1,2025-06-06,2025-11-09
+LAP-178,felix.patterson@acme.com,Adobe Creative Cloud,2025.1,2025-06-07,2025-11-08
+LAP-179,gina.hughes@acme.com,Adobe Creative Cloud,2025.1,2025-06-08,2025-11-09
+LAP-180,hank.flores@acme.com,Adobe Creative Cloud,2025.1,2025-06-09,2025-11-07
+LAP-181,alice.foster@acme.com,Adobe Acrobat Pro,2024,2024-02-01,2025-11-09
+LAP-182,bobby.jenkins@acme.com,Adobe Acrobat Pro,2024,2024-02-02,2025-11-08
+LAP-183,chloe.perry@acme.com,Adobe Acrobat Pro,2024,2024-02-03,2025-11-09
+LAP-184,ivy.washington@acme.com,Adobe Acrobat Pro,2024,2024-02-04,2025-11-07
+LAP-185,james.butler@acme.com,Adobe Acrobat Pro,2024,2024-02-05,2025-11-09
+LAP-186,kara.simmons@acme.com,Adobe Acrobat Pro,2024,2024-02-06,2025-11-08
+LAP-187,keith.cruz@acme.com,Adobe Acrobat Pro,2024,2024-02-07,2025-11-09
+LAP-188,linda.marshall@acme.com,Adobe Acrobat Pro,2024,2024-02-08,2025-11-07
+LAP-189,alex.rivera@acme.com,Jira Software,10.1,2024-07-01,2025-11-09
+LAP-190,ben.kim@acme.com,Jira Software,10.1,2024-07-02,2025-11-08
+LAP-191,carol.chen@acme.com,Jira Software,10.1,2024-07-03,2025-11-09
+LAP-192,diana.patel@acme.com,Jira Software,10.1,2024-07-04,2025-11-07
+LAP-193,evan.johnson@acme.com,Jira Software,10.1,2024-07-05,2025-11-09
+LAP-194,adam.chen@acme.com,Jira Software,10.1,2024-07-06,2025-11-08
+LAP-195,bella.jones@acme.com,Jira Software,10.1,2024-07-07,2025-11-09
+LAP-196,carlos.smith@acme.com,Jira Software,10.1,2024-07-08,2025-11-07
+LAP-197,dana.lewis@acme.com,Jira Software,10.1,2024-07-09,2025-11-09
+LAP-198,eric.walker@acme.com,Jira Software,10.1,2024-07-10,2025-11-08
+LAP-199,harry.bailey@acme.com,Jira Software,10.1,2024-07-11,2025-08-01
+LAP-200,alex.rivera@acme.com,Confluence,10.1,2024-07-01,2025-11-09
+LAP-201,ben.kim@acme.com,Confluence,10.1,2024-07-02,2025-11-08
+LAP-202,carol.chen@acme.com,Confluence,10.1,2024-07-03,2025-11-09
+LAP-203,diana.patel@acme.com,Confluence,10.1,2024-07-04,2025-11-07
+LAP-204,evan.johnson@acme.com,Confluence,10.1,2024-07-05,2025-11-09
+LAP-205,adam.chen@acme.com,Confluence,10.1,2024-07-06,2025-11-08
+LAP-206,bella.jones@acme.com,Confluence,10.1,2024-07-07,2025-11-09
+LAP-207,carlos.smith@acme.com,Confluence,10.1,2024-07-08,2025-11-07
+LAP-208,dana.lewis@acme.com,Confluence,10.1,2024-07-09,2025-11-09
+LAP-209,eric.walker@acme.com,Confluence,10.1,2024-07-10,2025-11-08
+LAP-210,alex.rivera@acme.com,GitHub Enterprise,3.10,2025-01-15,2025-11-09
+LAP-211,ben.kim@acme.com,GitHub Enterprise,3.10,2025-01-16,2025-11-08
+LAP-212,carol.chen@acme.com,GitHub Enterprise,3.10,2025-01-17,2025-11-09
+LAP-213,diana.patel@acme.com,GitHub Enterprise,3.10,2025-01-18,2025-11-07
+LAP-214,evan.johnson@acme.com,GitHub Enterprise,3.10,2025-01-19,2025-11-09
+LAP-215,fiona.walsh@acme.com,GitHub Enterprise,3.10,2025-01-20,2025-11-08
+LAP-216,greg.martinez@acme.com,GitHub Enterprise,3.10,2025-01-21,2025-11-09
+LAP-217,hannah.lee@acme.com,GitHub Enterprise,3.10,2025-01-22,2025-11-07
+LAP-218,ian.brooks@acme.com,GitHub Enterprise,3.10,2025-01-23,2025-11-09
+LAP-219,jade.nguyen@acme.com,GitHub Enterprise,3.10,2025-01-24,2025-11-08
+LAP-220,yale.wood@acme.com,GitHub Enterprise,3.10,2025-01-25,2025-08-25
+LAP-221,alex.rivera@acme.com,GitLab Premium,17.0,2025-03-02,2025-11-09
+LAP-222,ben.kim@acme.com,GitLab Premium,17.0,2025-03-03,2025-11-08
+LAP-223,carol.chen@acme.com,GitLab Premium,17.0,2025-03-04,2025-11-09
+LAP-224,diana.patel@acme.com,GitLab Premium,17.0,2025-03-05,2025-11-07
+LAP-225,evan.johnson@acme.com,GitLab Premium,17.0,2025-03-06,2025-11-09
+LAP-226,alex.rivera@acme.com,Workday HCM,2025.1,2025-01-02,2025-11-09
+LAP-227,ben.kim@acme.com,Workday HCM,2025.1,2025-01-03,2025-11-08
+LAP-228,carol.chen@acme.com,Workday HCM,2025.1,2025-01-04,2025-11-09
+LAP-229,steve.hayes@acme.com,Workday HCM,2025.1,2025-01-05,2025-11-07
+LAP-230,tanya.myers@acme.com,Workday HCM,2025.1,2025-01-06,2025-11-09
+LAP-231,umar.ford@acme.com,Workday HCM,2025.1,2025-01-07,2025-11-08
+LAP-232,vicky.hamilton@acme.com,Workday HCM,2025.1,2025-01-08,2025-11-09
+LAP-233,walt.graham@acme.com,Workday HCM,2025.1,2025-01-09,2025-11-07
+LAP-234,xia.sullivan@acme.com,Workday HCM,2025.1,2025-01-10,2025-11-09
+LAP-235,yosef.wallace@acme.com,Workday HCM,2025.1,2025-01-11,2025-11-08
+LAP-236,zara.woods@acme.com,Workday HCM,2025.1,2025-01-12,2025-11-09
+LAP-237,quinton.wells@acme.com,ServiceNow ITSM,Vancouver,2025-02-16,2025-11-09
+LAP-238,rita.webb@acme.com,ServiceNow ITSM,Vancouver,2025-02-17,2025-11-08
+LAP-239,sidney.simpson@acme.com,ServiceNow ITSM,Vancouver,2025-02-18,2025-11-09
+LAP-240,theresa.stevens@acme.com,ServiceNow ITSM,Vancouver,2025-02-19,2025-11-07
+LAP-241,urban.tucker@acme.com,ServiceNow ITSM,Vancouver,2025-02-20,2025-11-09
+LAP-242,alice.foster@acme.com,Figma Professional,2025.1,2025-04-02,2025-11-09
+LAP-243,bobby.jenkins@acme.com,Figma Professional,2025.1,2025-04-03,2025-11-08
+LAP-244,chloe.perry@acme.com,Figma Professional,2025.1,2025-04-04,2025-11-09
+LAP-245,drew.powell@acme.com,Figma Professional,2025.1,2025-04-05,2025-11-07
+LAP-246,emma.long@acme.com,Figma Professional,2025.1,2025-04-06,2025-11-09
+LAP-247,felix.patterson@acme.com,Figma Professional,2025.1,2025-04-07,2025-11-08
+LAP-248,gina.hughes@acme.com,Figma Professional,2025.1,2025-04-08,2025-11-09
+LAP-249,hank.flores@acme.com,Figma Professional,2025.1,2025-04-09,2025-11-07
+LAP-250,adam.chen@acme.com,Miro Team,3.8,2025-01-16,2025-11-09
+LAP-251,bella.jones@acme.com,Miro Team,3.8,2025-01-17,2025-11-08
+LAP-252,carlos.smith@acme.com,Miro Team,3.8,2025-01-18,2025-11-09
+LAP-253,dana.lewis@acme.com,Miro Team,3.8,2025-01-19,2025-11-07
+LAP-254,eric.walker@acme.com,Miro Team,3.8,2025-01-20,2025-11-09
+LAP-255,adam.chen@acme.com,Notion Team,2025.1,2025-02-02,2025-11-09
+LAP-256,bella.jones@acme.com,Notion Team,2025.1,2025-02-03,2025-11-08
+LAP-257,carlos.smith@acme.com,Notion Team,2025.1,2025-02-04,2025-11-09
+LAP-258,dana.lewis@acme.com,Notion Team,2025.1,2025-02-05,2025-11-07
+LAP-259,eric.walker@acme.com,Notion Team,2025.1,2025-02-06,2025-11-09
+LAP-260,faith.young@acme.com,Notion Team,2025.1,2025-02-07,2025-11-08
+LAP-261,george.king@acme.com,Notion Team,2025.1,2025-02-08,2025-11-09
+LAP-262,helen.wright@acme.com,Notion Team,2025.1,2025-02-09,2025-11-07
+LAP-263,adam.chen@acme.com,Monday.com Pro,10.2,2025-05-02,2025-11-09
+LAP-264,bella.jones@acme.com,Monday.com Pro,10.2,2025-05-03,2025-11-08
+LAP-265,carlos.smith@acme.com,Monday.com Pro,10.2,2025-05-04,2025-11-09
+LAP-266,dana.lewis@acme.com,Monday.com Pro,10.2,2025-05-05,2025-11-07
+LAP-267,eric.walker@acme.com,Monday.com Pro,10.2,2025-05-06,2025-11-09
+LAP-268,adam.chen@acme.com,Asana Business,2025.1,2025-03-16,2025-11-09
+LAP-269,bella.jones@acme.com,Asana Business,2025.1,2025-03-17,2025-11-08
+LAP-270,carlos.smith@acme.com,Asana Business,2025.1,2025-03-18,2025-11-09
+LAP-271,dana.lewis@acme.com,Asana Business,2025.1,2025-03-19,2025-11-07
+LAP-272,eric.walker@acme.com,Asana Business,2025.1,2025-03-20,2025-11-09
+LAP-273,angela.cole@acme.com,Zendesk Suite,2025.1,2025-01-21,2025-11-09
+LAP-274,brian.west@acme.com,Zendesk Suite,2025.1,2025-01-22,2025-11-08
+LAP-275,cody.jordan@acme.com,Zendesk Suite,2025.1,2025-01-23,2025-11-09
+LAP-276,donna.owens@acme.com,Zendesk Suite,2025.1,2025-01-24,2025-11-07
+LAP-277,eugene.reynolds@acme.com,Zendesk Suite,2025.1,2025-01-25,2025-11-09
+LAP-278,amy.morris@acme.com,HubSpot Marketing Hub,2025.1,2025-06-02,2025-11-09
+LAP-279,blake.rogers@acme.com,HubSpot Marketing Hub,2025.1,2025-06-03,2025-11-08
+LAP-280,clara.reed@acme.com,HubSpot Marketing Hub,2025.1,2025-06-04,2025-11-09
+LAP-281,derek.cook@acme.com,HubSpot Marketing Hub,2025.1,2025-06-05,2025-11-07
+LAP-282,eliza.morgan@acme.com,HubSpot Marketing Hub,2025.1,2025-06-06,2025-11-09
+LAP-283,kelly.richardson@acme.com,Looker,24.18,2025-02-02,2025-11-09
+LAP-284,leon.cox@acme.com,Looker,24.18,2025-02-03,2025-11-08
+LAP-285,mia.howard@acme.com,Looker,24.18,2025-02-04,2025-11-09
+LAP-286,nora.ward@acme.com,Looker,24.18,2025-02-05,2025-11-07
+LAP-287,owen.torres@acme.com,Looker,24.18,2025-02-06,2025-11-09
+LAP-288,alex.rivera@acme.com,Splunk Enterprise,9.1,2025-04-16,2025-11-09
+LAP-289,ben.kim@acme.com,Splunk Enterprise,9.1,2025-04-17,2025-11-08
+LAP-290,carol.chen@acme.com,Splunk Enterprise,9.1,2025-04-18,2025-11-09
+LAP-291,diana.patel@acme.com,Splunk Enterprise,9.1,2025-04-19,2025-11-07
+LAP-292,evan.johnson@acme.com,Splunk Enterprise,9.1,2025-04-20,2025-11-09
+LAP-293,alex.rivera@acme.com,PagerDuty,2025.1,2025-01-11,2025-11-09
+LAP-294,ben.kim@acme.com,PagerDuty,2025.1,2025-01-12,2025-11-08
+LAP-295,carol.chen@acme.com,PagerDuty,2025.1,2025-01-13,2025-11-09
+LAP-296,diana.patel@acme.com,PagerDuty,2025.1,2025-01-14,2025-11-07
+LAP-297,evan.johnson@acme.com,PagerDuty,2025.1,2025-01-15,2025-11-09
+LAP-298,alex.rivera@acme.com,Datadog Pro,7.48,2025-03-02,2025-11-09
+LAP-299,ben.kim@acme.com,Datadog Pro,7.48,2025-03-03,2025-11-08
+LAP-300,carol.chen@acme.com,Datadog Pro,7.48,2025-03-04,2025-11-09
+LAP-301,diana.patel@acme.com,Datadog Pro,7.48,2025-03-05,2025-11-07
+LAP-302,evan.johnson@acme.com,Datadog Pro,7.48,2025-03-06,2025-11-09
+LAP-303,alex.rivera@acme.com,New Relic Pro,8.12,2025-05-02,2025-11-09
+LAP-304,ben.kim@acme.com,New Relic Pro,8.12,2025-05-03,2025-11-08
+LAP-305,carol.chen@acme.com,New Relic Pro,8.12,2025-05-04,2025-11-09
+LAP-306,diana.patel@acme.com,New Relic Pro,8.12,2025-05-05,2025-11-07
+LAP-307,evan.johnson@acme.com,New Relic Pro,8.12,2025-05-06,2025-11-09
+LAP-308,alex.rivera@acme.com,Docker Business,24.0,2025-01-02,2025-11-09
+LAP-309,ben.kim@acme.com,Docker Business,24.0,2025-01-03,2025-11-08
+LAP-310,carol.chen@acme.com,Docker Business,24.0,2025-01-04,2025-11-09
+LAP-311,diana.patel@acme.com,Docker Business,24.0,2025-01-05,2025-11-07
+LAP-312,evan.johnson@acme.com,Docker Business,24.0,2025-01-06,2025-11-09
+LAP-313,alex.rivera@acme.com,IntelliJ IDEA,2024.3,2025-02-16,2025-11-09
+LAP-314,ben.kim@acme.com,IntelliJ IDEA,2024.3,2025-02-17,2025-11-08
+LAP-315,carol.chen@acme.com,IntelliJ IDEA,2024.3,2025-02-18,2025-11-09
+LAP-316,diana.patel@acme.com,IntelliJ IDEA,2024.3,2025-02-19,2025-11-07
+LAP-317,evan.johnson@acme.com,IntelliJ IDEA,2024.3,2025-02-20,2025-11-09

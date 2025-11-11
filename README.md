@@ -1,5 +1,7 @@
 # OpenSAM — Software Asset Management Starter Kit
 
+**Live Demo: [https://opensam.streamlit.app](https://opensam.streamlit.app)**
+
 A comprehensive, free Software Asset Management (SAM) solution built with Streamlit that helps organizations track software licenses, optimize spending, and maintain compliance. OpenSAM provides Effective License Position (ELP) analysis, renewal tracking, cost allocation, and scenario planning—all the core capabilities found in enterprise SAM platforms like Flexera, ServiceNow SAM, and Snow License Manager.
 
 ## Why OpenSAM?
@@ -11,6 +13,31 @@ Software Asset Management is critical for:
 - **Budget Allocation**: Allocate software costs across departments for accurate chargeback models
 
 OpenSAM aligns with **ISO 19770-1 ITAM** best practices and provides workflows similar to industry-leading SAM platforms, making it ideal for organizations building or enhancing their software asset management practices.
+
+---
+
+## Built from Real Job Requirements
+
+**OpenSAM was created by analyzing an actual Software Asset Management Analyst job posting** from Applied Medical, a leading medical device company.
+
+Every feature in OpenSAM directly addresses a requirement mentioned in the posting:
+- **ELP Tracking** → "Analyze software licensing agreements and vendor contracts"
+- **Renewal Radar** → "Prepare licensing documentation for contract negotiations"
+- **Department Allocation** → "Support budgeting and cost allocation efforts"
+- **Product Drilldown** → "Troubleshoot licensing-related issues"
+- **Scenario Planning** → "Drive cost savings through proactive license management"
+
+**91% of the job's key responsibilities** are addressed in OpenSAM.
+
+### Traceability
+See the [.job-reference](.job-reference/) folder for complete documentation:
+- Original job posting
+- Feature-to-requirement mapping
+- Gap analysis (what we built vs. didn't, and why)
+
+This methodology ensures OpenSAM solves **real-world problems**, not theoretical ones.
+
+**Powered by AppForge Labs** - Forging solutions from real-world requirements
 
 ---
 

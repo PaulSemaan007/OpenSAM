@@ -3,7 +3,29 @@ Microsoft,Ada Lovelace,amicrosoft@vendor.com,60
 SAP,Grace Hopper,gsap@vendor.com,90
 Salesforce,Alan Turing,atableau@salesforce.com,45
 Zoom,Joan Clarke,jclarke@zoom.us,30
-Slack,Katherine Johnson,kjohnson@slack.com,
+Slack,Katherine Johnson,kjohnson@slack.com,30
 Adobe,Margaret Hamilton,mhamilton@adobe.com,90
 Atlassian,Frances Allen,fallen@atlassian.com,45
 GitHub,Radia Perlman,rperlman@github.com,60
+GitLab,Dennis Ritchie,dritchie@gitlab.com,45
+Amazon,Linus Torvalds,ltorvalds@aws.amazon.com,60
+Snowflake,Barbara Liskov,bliskov@snowflake.com,60
+Databricks,Tim Berners-Lee,tbl@databricks.com,45
+Workday,Guido van Rossum,gvr@workday.com,90
+ServiceNow,Bjarne Stroustrup,bstroustrup@servicenow.com,60
+Okta,James Gosling,jgosling@okta.com,30
+1Password,Brendan Eich,beich@1password.com,45
+Figma,Ryan Dahl,rdahl@figma.com,30
+Miro,Rich Hickey,rhickey@miro.com,30
+Notion,Yukihiro Matsumoto,matz@notion.so,45
+Monday,John Carmack,jcarmack@monday.com,45
+Asana,Anders Hejlsberg,ahejlsberg@asana.com,60
+Zendesk,Don Knuth,dknuth@zendesk.com,45
+HubSpot,Ken Thompson,kthompson@hubspot.com,60
+Google,Larry Page,lpage@google.com,60
+Splunk,Sergey Brin,sbrin@splunk.com,90
+PagerDuty,Jeff Dean,jdean@pagerduty.com,30
+Datadog,Sanjay Ghemawat,sghemawat@datadog.com,45
+New Relic,Martin Fowler,mfowler@newrelic.com,30
+Docker,Solomon Hykes,shykes@docker.com,60
+JetBrains,Andrey Breslav,abreslav@jetbrains.com,60

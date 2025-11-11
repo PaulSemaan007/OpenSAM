@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from datetime import datetime, timedelta
+import plotly.express as px
+import plotly.graph_objects as go
 
 st.set_page_config(page_title="OpenSAM", layout="wide")
 
@@ -263,6 +265,164 @@ k3.metric("Total Seats", int(filtered["seats_purchased"].sum()) if "seats_purcha
 k4.metric("Potential Savings", fmt_currency(filtered["potential_savings_usd"].sum()))
 
 st.caption("💡 **Potential Savings** counts subscription licenses only (perpetual licenses excluded). Perpetual licenses may still incur maintenance/support costs; savings shown exclude those.")
+
+# ============================================================================
+# Smart Alerts Banner
+# ============================================================================
+
+# Calculate top alerts
+alerts = []
+
+# Alert 1: Contracts expiring soon
+expiring_soon = filtered[filtered["contract_days_remaining"] <= 10]
+if len(expiring_soon) > 0:
+    alerts.append({
+        "icon": "🔴",
+        "priority": 1,
+        "message": f"URGENT: {len(expiring_soon)} contract{'s' if len(expiring_soon) > 1 else ''} expiring in ≤10 days",
+        "products": ", ".join(expiring_soon["software"].head(3).tolist())
+    })
+
+# Alert 2: Overage situations
+overages = filtered[filtered["overage"] > 0]
+if len(overages) > 0:
+    total_overage = int(overages["overage"].sum())
+    alerts.append({
+        "icon": "⚠️",
+        "priority": 2,
+        "message": f"COMPLIANCE RISK: {len(overages)} product{'s' if len(overages) > 1 else ''} over-deployed ({total_overage} seats)",
+        "products": ", ".join(overages["software"].head(3).tolist())
+    })
+
+# Alert 3: Reclaim opportunities
+inactive_total = filtered["inactive_installs"].sum()
+if inactive_total > 0:
+    # Calculate reclaimable value (subscriptions only)
+    reclaim_value = 0
+    for _, row in filtered[filtered["inactive_installs"] > 0].iterrows():
+        if pd.notna(row.get("license_type")) and "subscription" in str(row["license_type"]).lower():
+            reclaim_value += row["inactive_installs"] * row.get("unit_cost_usd", 0)
+
+    if reclaim_value > 0:
+        alerts.append({
+            "icon": "💰",
+            "priority": 3,
+            "message": f"SAVINGS OPPORTUNITY: Reclaim {fmt_currency(reclaim_value)} from {int(inactive_total)} inactive user{'s' if inactive_total > 1 else ''}",
+            "products": ""
+        })
+
+# Alert 4: High potential savings
+high_savings = filtered[filtered["potential_savings_usd"] >= 5000].sort_values("potential_savings_usd", ascending=False)
+if len(high_savings) > 0 and len(alerts) < 3:
+    top_product = high_savings.iloc[0]
+    alerts.append({
+        "icon": "📊",
+        "priority": 4,
+        "message": f"OPTIMIZATION: {top_product['software']} has {fmt_currency(top_product['potential_savings_usd'])} in unused seats",
+        "products": ""
+    })
+
+# Display alerts
+if alerts:
+    st.markdown("### 🚨 Action Items")
+
+    # Sort by priority
+    alerts_sorted = sorted(alerts, key=lambda x: x["priority"])
+
+    for alert in alerts_sorted[:3]:  # Show top 3
+        if alert["products"]:
+            st.warning(f"{alert['icon']} **{alert['message']}**\n\n*Products: {alert['products']}*")
+        else:
+            st.warning(f"{alert['icon']} **{alert['message']}**")
+
+    st.markdown("---")
+
+# ============================================================================
+# Visual Dashboard
+# ============================================================================
+
+st.subheader("Portfolio Insights")
+
+# Create 3 columns for charts
+chart_col1, chart_col2, chart_col3 = st.columns(3)
+
+with chart_col1:
+    # Subscription vs Perpetual breakdown
+    st.markdown("**License Type Distribution**")
+    if "license_type" in filtered.columns:
+        license_counts = filtered.groupby("license_type").agg(
+            count=("software", "count"),
+            total_spend=("unit_cost_usd", lambda x: (x * filtered.loc[x.index, "seats_purchased"]).sum())
+        ).reset_index()
+
+        fig_license = px.pie(
+            license_counts,
+            values="count",
+            names="license_type",
+            color_discrete_sequence=["#2563eb", "#64748b", "#10b981"]
+        )
+        fig_license.update_traces(textposition='inside', textinfo='percent+label')
+        fig_license.update_layout(showlegend=False, height=250, margin=dict(t=0, b=0, l=0, r=0))
+        st.plotly_chart(fig_license, use_container_width=True)
+
+with chart_col2:
+    # Top 5 vendors by spend
+    st.markdown("**Top Vendors by Spend**")
+    if "vendor" in filtered.columns and "unit_cost_usd" in filtered.columns:
+        vendor_spend = filtered.groupby("vendor").apply(
+            lambda x: (x["unit_cost_usd"] * x["seats_purchased"]).sum()
+        ).sort_values(ascending=False).head(5).reset_index()
+        vendor_spend.columns = ["vendor", "total_spend"]
+
+        fig_vendor = px.bar(
+            vendor_spend,
+            x="total_spend",
+            y="vendor",
+            orientation="h",
+            color_discrete_sequence=["#2563eb"]
+        )
+        fig_vendor.update_layout(
+            showlegend=False,
+            height=250,
+            margin=dict(t=0, b=0, l=10, r=0),
+            xaxis_title="Total Annual Spend ($)",
+            yaxis_title=""
+        )
+        st.plotly_chart(fig_vendor, use_container_width=True)
+
+with chart_col3:
+    # Contracts expiring in next 90 days
+    st.markdown("**Renewal Timeline (90 days)**")
+    expiring_90 = filtered[filtered["contract_days_remaining"] <= 90].sort_values("contract_days_remaining")
+
+    if len(expiring_90) > 0:
+        # Create timeline chart
+        expiring_90_display = expiring_90.head(10).copy()  # Top 10 soonest
+        expiring_90_display["color"] = expiring_90_display["contract_days_remaining"].apply(
+            lambda x: "Urgent (<30d)" if x <= 30 else "Soon (30-90d)"
+        )
+
+        fig_timeline = px.bar(
+            expiring_90_display,
+            y="software",
+            x="contract_days_remaining",
+            orientation="h",
+            color="color",
+            color_discrete_map={"Urgent (<30d)": "#dc2626", "Soon (30-90d)": "#f59e0b"}
+        )
+        fig_timeline.update_layout(
+            showlegend=True,
+            height=250,
+            margin=dict(t=0, b=0, l=10, r=0),
+            xaxis_title="Days Until Expiration",
+            yaxis_title="",
+            legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1)
+        )
+        st.plotly_chart(fig_timeline, use_container_width=True)
+    else:
+        st.info("No contracts expiring in next 90 days")
+
+st.markdown("---")
 
 # ============================================================================
 # ELP Table with Overage Badges

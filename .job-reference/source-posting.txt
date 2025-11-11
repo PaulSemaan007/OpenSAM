@@ -1,0 +1,58 @@
+Full job description
+_________________________________________________________________________________:
+Applied Medical is a new generation medical device company with a proven business model and commitment to innovation fueled by rapid business growth and expansion. Our company has been developing and manufacturing advanced surgical technologies for over 35 years and has earned a strong reputation for excellence in the healthcare field. Our unique business model, combined with our dedication to delivering the highest quality products, enables team members to contribute in a larger capacity than is possible in typical positions.
+
+Position Description:
+The Software Asset Management Analyst role at Applied Medical offers the opportunity to make a meaningful impact on our enterprise software strategy while gaining hands-on experience across a broad IT and business landscape. You will have the opportunity to work closely with local IT and cross-functional teams to drive cost savings and improve software compliance. In this role, you'll play a key role in reducing our IT cost footprint by analyzing license utilization and ensuring we only pay for what we use. You’ll also gain valuable experience with tools like Flexera and ServiceNow, while building expertise in IT Asset Management, licensing strategy, contract management, and software procurement.
+
+Key Responsibilities
+Analyze software licensing agreements and vendor contracts to ensure compliance and cost optimization
+Maintain and enhance the software asset repository, including configurations, dashboards, and reporting tools
+Collaborate with IT and cross-functional teams to manage software procurement and deployment processes
+Conduct software compliance reviews, true-ups, and audits to identify risks and savings opportunities
+Develop and maintain SAM policies and procedures to support entitlement and inventory tracking
+Prepare licensing documentation and effective license positions for contract negotiations
+Support budgeting and cost allocation efforts by providing financial data and cost-benefit analyses
+Troubleshoot licensing-related issues in coordination with IT support teams
+Success in This Role Looks Like
+Drive software compliance and cost savings through proactive license management
+Ensure accurate and up-to-date software asset records across the organization
+Lead cross-functional initiatives to improve software procurement and deployment processes
+Communicate effectively with stakeholders to support licensing decisions and audits
+Contribute to continuous improvement of SAM policies and reporting capabilities
+Support strategic IT planning through reliable financial and licensing data
+Position Requirements:
+This position requires the following skills and attributes:
+Bachelor’s degree in information technology, computer science, or a related field, or equivalent relevant work experience
+Minimum of three years of IT experience, including at least two years in IT Asset Management (ITAM) and Software Asset Management (SAM)
+Strong understanding of Microsoft licensing models and research methods
+Proficiency in software license management tools and enterprise software agreements
+Advanced Excel skills, including PivotTables, VLOOKUP, IF statements, and macros
+Experience with software discovery tools and data collection methodologies
+Excellent analytical, organizational, and problem-solving skills
+Strong verbal and written communication abilities and interpersonal skills
+Ability to manage multiple priorities and adapt to changing business needs
+Preferred:
+The following skills and attributes are preferred:
+Proven experience in managing Microsoft Enterprise Agreements and Volume Licensing Agreements
+Strong understanding of other major software vendors, particularly SAP
+Proficiency with Software Asset Management (SAM) tools, especially Flexera
+Experience using ServiceNow for asset tracking and workflow management
+Industry certification from the International Association of IT Asset Managers (IAITAM), such as Certified Software Asset Manager (CSAM) or Certified IT Asset Manager (CITAM)
+Experience in technology procurement, contract review, and enterprise software management
+Benefits:
+Competitive compensation range: $65000 - $90000 / year (California).
+Comprehensive benefits package.
+Training and mentorship opportunities.
+On-campus wellness activities.
+Education reimbursement program.
+401(k) program with discretionary employer match.
+Generous vacation accrual and paid holiday schedule.
+Please note that the compensation range may be adjusted in the future, and bonus and incentive compensation plans may apply.
+
+Our total reward package reflects our commitment to employee growth and well-being, as we invest in your development and offer a range of benefits designed to enhance your career and life.
+
+All compensation and benefits are subject to plan documents and written agreements.
+
+Equal Opportunity Employer
+Applied Medical is an Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to age, ancestry, color, disability (mental and physical), exercising the right to family care and medical leave, gender, gender expression, gender identity, genetic information, marital status, medical condition, military or veteran status, national origin, political affiliation, race, religious creed, sex (including pregnancy, childbirth, breastfeeding and related medical conditions), or sexual orientation, or any other status protected by federal, state or local laws in the locations where Applied Medical operates.

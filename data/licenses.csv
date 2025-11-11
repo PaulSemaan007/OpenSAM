@@ -1,10 +1,41 @@
 software,vendor,license_type,unit_cost_usd,seats_purchased,contract_start,contract_end,license_key
-Microsoft 365 E3,Microsoft,subscription,36,100,2025-01-01,2025-12-31,MSFT-XXXX-E3
-Visio Plan 2,Microsoft,subscription,15,25,2025-03-01,2026-02-28,VISO-YYYY-P2
-SAP S/4HANA,SAP,perpetual,2500,10,2024-07-01,2029-06-30,SAP-AAAA-ERP
-Tableau Creator,Salesforce,subscription,70,12,2025-05-01,2026-04-30,TABL-ZZZZ-CRT
-Zoom Pro,Zoom,subscription,12,50,2025-01-15,2026-01-14,ZOOM-PRO-KEY
-Slack Enterprise,Slack,subscription,8,5,2025-01-01,2025-12-10,SLACK-ENT-2025
-Adobe Acrobat Pro,Adobe,perpetual,180,15,2024-01-01,2029-12-31,ADOBE-PERP-001
-Jira Software,Atlassian,subscription,10,20,2024-06-01,2025-12-25,JIRA-SW-2025
-GitHub Enterprise,GitHub,subscription,21,100,2025-01-01,,GITHUB-ENT-NODATE
+Microsoft 365 E3,Microsoft,subscription,36,120,2025-01-01,2025-12-31,MSFT-E3-2025
+Microsoft 365 E5,Microsoft,subscription,57,35,2025-02-01,2026-01-31,MSFT-E5-2025
+Visio Plan 2,Microsoft,subscription,15,28,2025-03-01,2026-02-28,VISO-P2-2025
+Power BI Pro,Microsoft,subscription,10,45,2025-01-15,2026-01-14,PWBI-PRO-2025
+Azure DevOps,Microsoft,subscription,6,60,2025-04-01,2026-03-31,AZDO-2025
+SAP S/4HANA,SAP,perpetual,2500,12,2024-07-01,2029-06-30,SAP-S4-ERP
+SAP Analytics Cloud,SAP,subscription,36,18,2025-05-01,2026-04-30,SAP-AC-2025
+Salesforce Sales Cloud,Salesforce,subscription,150,55,2025-01-10,2026-01-09,SFDC-SALES-2025
+Salesforce Service Cloud,Salesforce,subscription,75,22,2025-03-15,2026-03-14,SFDC-SERV-2025
+Tableau Creator,Salesforce,subscription,70,15,2025-05-01,2026-04-30,TABL-CRT-2025
+Slack Enterprise,Slack,subscription,8,8,2025-01-01,2025-12-18,SLACK-ENT-2025
+Zoom Pro,Zoom,subscription,12,65,2025-01-15,2026-01-14,ZOOM-PRO-2025
+Zoom Webinar,Zoom,subscription,45,10,2025-02-01,2026-01-31,ZOOM-WEB-2025
+Adobe Creative Cloud,Adobe,subscription,55,24,2025-06-01,2026-05-31,ADOBE-CC-2025
+Adobe Acrobat Pro,Adobe,perpetual,180,30,2024-01-01,2029-12-31,ADOBE-PERP-001
+Jira Software,Atlassian,subscription,10,85,2024-06-01,2025-12-20,JIRA-SW-2025
+Confluence,Atlassian,subscription,5,90,2024-06-01,2025-12-20,CONF-2025
+GitHub Enterprise,GitHub,subscription,21,110,2025-01-01,2026-12-31,GITHUB-ENT-2025
+GitLab Premium,GitLab,subscription,19,40,2025-03-01,2026-02-28,GITLAB-PREM-2025
+AWS Reserved Instances,Amazon,subscription,500,25,2025-01-01,2026-12-31,AWS-RI-2025
+Snowflake Enterprise,Snowflake,subscription,120,20,2025-04-01,2026-03-31,SNOW-ENT-2025
+Databricks Premium,Databricks,subscription,99,14,2025-05-15,2026-05-14,DBRICKS-2025
+Workday HCM,Workday,subscription,100,140,2025-01-01,2025-12-31,WDAY-HCM-2025
+ServiceNow ITSM,ServiceNow,subscription,100,18,2025-02-15,2026-02-14,SNOW-ITSM-2025
+Okta Workforce Identity,Okta,subscription,3,150,2025-01-01,2026-12-31,OKTA-WFI-2025
+1Password Teams,1Password,subscription,8,140,2025-03-01,2026-02-28,1PASS-TEAM-2025
+Figma Professional,Figma,subscription,12,18,2025-04-01,2025-12-08,FIGMA-PRO-2025
+Miro Team,Miro,subscription,8,32,2025-01-15,2026-01-14,MIRO-TEAM-2025
+Notion Team,Notion,subscription,10,50,2025-02-01,2026-01-31,NOTION-TEAM-2025
+Monday.com Pro,Monday,subscription,12,35,2025-05-01,2026-04-30,MONDAY-PRO-2025
+Asana Business,Asana,subscription,25,28,2025-03-15,2026-03-14,ASANA-BIZ-2025
+Zendesk Suite,Zendesk,subscription,89,25,2025-01-20,2026-01-19,ZENDESK-2025
+HubSpot Marketing Hub,HubSpot,subscription,890,5,2025-06-01,2026-05-31,HSPOT-MKT-2025
+Looker,Google,subscription,3500,8,2025-02-01,2026-01-31,LOOKER-ENT-2025
+Splunk Enterprise,Splunk,subscription,1800,6,2025-04-15,2026-04-14,SPLUNK-ENT-2025
+PagerDuty,PagerDuty,subscription,21,22,2025-01-10,2026-01-09,PAGER-2025
+Datadog Pro,Datadog,subscription,15,35,2025-03-01,2026-02-28,DDOG-PRO-2025
+New Relic Pro,New Relic,subscription,99,12,2025-05-01,2025-12-05,NEWRELIC-2025
+Docker Business,Docker,subscription,7,45,2025-01-01,2026-12-31,DOCKER-BIZ-2025
+IntelliJ IDEA,JetBrains,subscription,149,38,2025-02-15,2026-02-14,IDEA-2025
