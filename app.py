@@ -161,32 +161,8 @@ if st.sidebar.button("🚀 Upgrade to Pro"):
 
 st.sidebar.markdown("---")
 
-st.title("OpenSAM — Software Asset Management (Starter)")
-
-# First-time user welcome banner
-if "first_visit" not in st.session_state:
-    st.session_state.first_visit = True
-
-if st.session_state.first_visit:
-    st.success("""
-    👋 **Welcome to OpenSAM!** This is a live demo with sample data from a fictional company (Acme Corp).
-
-    **Quick Start Guide:**
-    - 💰 See that **$75K+ savings**? Those are unused seats you could reclaim
-    - ⚠️ **Red badges** = Action needed (overages, expirations, terminated users)
-    - 🔍 **Hover over ℹ️ icons** throughout for help on what each feature does
-    - 📊 **Use the sidebar** to explore other pages (Renewal Radar, Product Drilldown, Scenarios)
-
-    Click below to dismiss this message and start exploring!
-    """)
-    col_dismiss1, col_dismiss2, col_dismiss3 = st.columns([1, 1, 2])
-    with col_dismiss1:
-        if st.button("✅ Got it! Let me explore", use_container_width=True, type="primary"):
-            st.session_state.first_visit = False
-            st.rerun()
-
-# Demo disclaimer banner
-st.info("📊 **Demo Mode:** This is a live demo using sample data. Contact AppForge Labs for production deployment with your real data.", icon="ℹ️")
+st.title("OpenSAM — Software Asset Management")
+st.caption("📊 Demo using Acme Corp sample data | [Contact AppForge Labs](mailto:paulsemaan007@gmail.com) for production deployment")
 
 # ============================================================================
 # Formatting Helpers (Reusable across all pages)
@@ -393,37 +369,166 @@ else:
     sam["potential_savings_usd"] = 0
 
 # ============================================================================
-# Filters
+# HERO SECTION - Giant Savings Number
 # ============================================================================
 
-st.subheader("Filters")
-cols = st.columns(4)
-with cols[0]:
-    vendor_filter = st.multiselect(
-        "Vendor",
-        sorted(sam["vendor"].dropna().unique().tolist()) if "vendor" in sam.columns else [],
-        help="🔍 Filter by software vendor (Microsoft, Salesforce, etc.)"
-    )
-with cols[1]:
-    risk_filter = st.selectbox(
-        "Risk",
-        ["All", "Over-Used", "Expiring < 30d", "Inactive Users Present"],
-        help="⚠️ Over-Used = compliance issue (more users than seats). Expiring = contract ends soon. Inactive = terminated users still have licenses."
-    )
-with cols[2]:
-    min_savings = st.number_input(
-        "Min Potential Savings ($)",
-        value=0,
-        min_value=0,
-        step=50,
-        help="💰 Only show products with at least this much savings potential (unused seats × unit cost)"
-    )
-with cols[3]:
-    only_subs = st.toggle(
-        "Subscriptions only",
-        value=False,
-        help="📅 Show only subscription licenses (exclude perpetual/one-time purchases)"
-    )
+# Calculate total savings for hero
+hero_savings = sam["potential_savings_usd"].sum()
+
+# Hero section with visual impact
+st.markdown("---")
+hero_col1, hero_col2 = st.columns([1, 2])
+
+with hero_col1:
+    st.markdown(f"""
+    <div style='background: linear-gradient(135deg, #27ae60 0%, #16a085 100%);
+                padding: 2.5rem 2rem; border-radius: 12px; text-align: center;
+                box-shadow: 0 8px 16px rgba(0,0,0,0.15);'>
+        <div style='font-size: 3.5rem; font-weight: bold; color: white; margin-bottom: 0.5rem; line-height: 1;'>
+            {fmt_currency(hero_savings)}
+        </div>
+        <div style='font-size: 1.3rem; color: #f0f9ff; font-weight: 600; margin-bottom: 0.5rem;'>
+            💰 Annual Savings Potential
+        </div>
+        <div style='font-size: 0.95rem; color: #d1f2eb; margin-top: 0.5rem;'>
+            From unused software seats at Acme Corp
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+with hero_col2:
+    st.markdown("### 🎯 Where Are Your Savings?")
+
+    # Calculate savings breakdown
+    terminated_users_df = sam[sam["inactive_installs"] > 0]
+    terminated_savings = 0
+    for _, row in terminated_users_df.iterrows():
+        if pd.notna(row.get("license_type")) and "subscription" in str(row["license_type"]).lower():
+            terminated_savings += row["inactive_installs"] * row.get("unit_cost_usd", 0)
+
+    unused_seats_savings = hero_savings - terminated_savings
+
+    savings_data = pd.DataFrame({
+        'Category': ['Terminated Users\n(Instant Reclaim)', 'Unused Seats\n(Optimize at Renewal)'],
+        'Savings': [terminated_savings, unused_seats_savings]
+    })
+
+    if hero_savings > 0:
+        fig_hero = px.bar(
+            savings_data,
+            y='Category',
+            x='Savings',
+            orientation='h',
+            color='Savings',
+            color_continuous_scale=['#e74c3c', '#27ae60'],
+            text='Savings'
+        )
+        fig_hero.update_traces(texttemplate='$%{text:,.0f}', textposition='inside')
+        fig_hero.update_layout(
+            showlegend=False,
+            height=150,
+            margin=dict(t=0, b=0, l=0, r=0),
+            xaxis_title="",
+            yaxis_title="",
+            coloraxis_showscale=False,
+            plot_bgcolor='rgba(0,0,0,0)',
+            paper_bgcolor='rgba(0,0,0,0)'
+        )
+        st.plotly_chart(fig_hero, use_container_width=True)
+
+        col_a, col_b = st.columns(2)
+        with col_a:
+            st.metric("Terminated Users", f"{int(sam['inactive_installs'].sum())}", help="Remove licenses from ex-employees")
+        with col_b:
+            st.metric("Unused Seats", f"{int(sam['seats_unused'].sum())}", help="Reduce at next renewal")
+
+st.markdown("---")
+
+# ============================================================================
+# QUICK VIEW PRESET BUTTONS
+# ============================================================================
+
+st.subheader("👀 Quick Views")
+st.caption("One-click filters to find specific issues instantly")
+
+# Initialize session state for presets
+if 'preset_filter' not in st.session_state:
+    st.session_state['preset_filter'] = None
+
+preset_cols = st.columns(5)
+
+with preset_cols[0]:
+    if st.button("🔴 All Issues", use_container_width=True,
+                 type="primary" if st.session_state.get('preset_filter') == 'all_issues' else "secondary"):
+        st.session_state['preset_filter'] = 'all_issues'
+
+with preset_cols[1]:
+    if st.button("⚠️ Overages", use_container_width=True,
+                 type="primary" if st.session_state.get('preset_filter') == 'overages' else "secondary"):
+        st.session_state['preset_filter'] = 'overages'
+
+with preset_cols[2]:
+    if st.button("💰 Big Savings", use_container_width=True,
+                 type="primary" if st.session_state.get('preset_filter') == 'big_savings' else "secondary"):
+        st.session_state['preset_filter'] = 'big_savings'
+
+with preset_cols[3]:
+    if st.button("📅 Expiring Soon", use_container_width=True,
+                 type="primary" if st.session_state.get('preset_filter') == 'expiring' else "secondary"):
+        st.session_state['preset_filter'] = 'expiring'
+
+with preset_cols[4]:
+    if st.button("🔄 Reset View", use_container_width=True):
+        st.session_state['preset_filter'] = None
+
+# ============================================================================
+# Advanced Filters (Collapsible)
+# ============================================================================
+
+with st.expander("🔧 Advanced Filters (click to customize)", expanded=False):
+    cols = st.columns(4)
+    with cols[0]:
+        vendor_filter = st.multiselect(
+            "Vendor",
+            sorted(sam["vendor"].dropna().unique().tolist()) if "vendor" in sam.columns else [],
+            default=[],
+            help="🔍 Filter by software vendor (Microsoft, Salesforce, etc.)"
+        )
+    with cols[1]:
+        risk_filter_manual = st.selectbox(
+            "Risk",
+            ["All", "Over-Used", "Expiring < 30d", "Inactive Users Present"],
+            help="⚠️ Over-Used = compliance issue (more users than seats). Expiring = contract ends soon. Inactive = terminated users still have licenses."
+        )
+    with cols[2]:
+        min_savings_manual = st.number_input(
+            "Min Potential Savings ($)",
+            value=0,
+            min_value=0,
+            step=50,
+            help="💰 Only show products with at least this much savings potential (unused seats × unit cost)"
+        )
+    with cols[3]:
+        only_subs = st.toggle(
+            "Subscriptions only",
+            value=False,
+            help="📅 Show only subscription licenses (exclude perpetual/one-time purchases)"
+        )
+
+# Apply preset filters or advanced filters (presets override manual filters)
+risk_filter = risk_filter_manual
+min_savings = min_savings_manual
+
+if st.session_state.get('preset_filter') == 'all_issues':
+    risk_filter = "All"
+    min_savings = 0
+elif st.session_state.get('preset_filter') == 'overages':
+    risk_filter = "Over-Used"
+elif st.session_state.get('preset_filter') == 'big_savings':
+    min_savings = 5000
+    risk_filter = "All"
+elif st.session_state.get('preset_filter') == 'expiring':
+    risk_filter = "Expiring < 30d"
 
 st.caption("""
 **Risk Definitions:**
@@ -447,59 +552,10 @@ if risk_filter != "All":
         filtered = filtered[filtered["inactive_installs"] > 0]
 filtered = filtered[filtered["potential_savings_usd"] >= min_savings]
 
-# ============================================================================
-# How to Use This Page (Collapsible Guide)
-# ============================================================================
-
-with st.expander("🎯 How to Use This Page (Click to Expand)"):
-    col_guide1, col_guide2 = st.columns(2)
-    with col_guide1:
-        st.markdown("**🔍 What You're Seeing:**")
-        st.markdown("- **All software licenses** in your portfolio at a glance")
-        st.markdown("- **Red ⚠️ badges** highlight products that need attention")
-        st.markdown("- **Charts** show license breakdown, top vendors, and renewal timeline")
-        st.markdown("- **Green savings numbers** = money you could reclaim from unused seats")
-    with col_guide2:
-        st.markdown("**✅ What To Do:**")
-        st.markdown("1. Check **Action Items** alerts at the top (urgent issues)")
-        st.markdown("2. Use **Filters** to find specific problems (overages, expiring contracts)")
-        st.markdown("3. Review the **ELP table** below to see seat usage vs. purchased")
-        st.markdown("4. Look at **Inactive Users** to reclaim licenses immediately")
-        st.markdown("5. Download **CSV exports** at the bottom to share with your team")
-
 st.markdown("---")
 
 # ============================================================================
-# Portfolio Overview Metrics
-# ============================================================================
-
-st.subheader("Portfolio Overview")
-k1, k2, k3, k4 = st.columns(4)
-k1.metric(
-    "Vendors",
-    filtered["vendor"].nunique() if "vendor" in filtered.columns else 0,
-    help="🏢 Number of unique software vendors in your portfolio"
-)
-k2.metric(
-    "Products",
-    filtered["software"].nunique() if "software" in filtered.columns else 0,
-    help="📦 Number of distinct software products (licenses)"
-)
-k3.metric(
-    "Total Seats",
-    int(filtered["seats_purchased"].sum()) if "seats_purchased" in filtered.columns else 0,
-    help="💺 Total number of licenses purchased across all products"
-)
-k4.metric(
-    "Potential Savings",
-    fmt_currency(filtered["potential_savings_usd"].sum()),
-    help="💰 Annual savings if you remove all unused seats from subscription licenses. Perpetual licenses excluded."
-)
-
-st.caption("💡 **Potential Savings** counts subscription licenses only (perpetual licenses excluded). Perpetual licenses may still incur maintenance/support costs; savings shown exclude those.")
-
-# ============================================================================
-# Smart Alerts Banner
+# ACTION ITEMS - Moved to Top for Visibility
 # ============================================================================
 
 # Calculate top alerts
