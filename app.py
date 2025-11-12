@@ -12,6 +12,9 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+# Override default page name in sidebar
+st.sidebar.page_link("app.py", label="🏠 Home", icon="🏠")
+
 # Custom CSS - Business Professional Theme
 st.markdown("""
 <style>
@@ -35,16 +38,36 @@ st.markdown("""
     }
     [data-testid="stSidebar"] * {
         color: white !important;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+    [data-testid="stSidebar"] h1,
+    [data-testid="stSidebar"] h2,
+    [data-testid="stSidebar"] h3 {
+        color: white !important;
+        font-weight: 700;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    }
+    [data-testid="stSidebar"] .stMarkdown p,
+    [data-testid="stSidebar"] .stMarkdown li {
+        color: #f0f9ff !important;
+        font-size: 0.95rem;
     }
     [data-testid="stSidebar"] .stButton button {
-        background-color: white;
-        color: #16a085 !important;
+        background-color: #2c3e50;
+        color: white !important;
         font-weight: bold;
-        border: 2px solid white;
+        border: 2px solid #2c3e50;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     }
     [data-testid="stSidebar"] .stButton button:hover {
-        background-color: #ecf0f1;
-        border-color: #ecf0f1;
+        background-color: #34495e;
+        border-color: #34495e;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
+    }
+    [data-testid="stSidebar"] .element-container div[data-baseweb="notification"] {
+        background-color: rgba(255, 255, 255, 0.2) !important;
+        border: 1px solid rgba(255, 255, 255, 0.3);
     }
     /* Metric cards */
     div[data-testid="stMetricValue"] {
