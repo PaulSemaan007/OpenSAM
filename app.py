@@ -12,9 +12,6 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Override default page name in sidebar
-st.sidebar.page_link("app.py", label="🏠 Home", icon="🏠")
-
 # Custom CSS - Business Professional Theme
 st.markdown("""
 <style>
@@ -68,6 +65,18 @@ st.markdown("""
     [data-testid="stSidebar"] .element-container div[data-baseweb="notification"] {
         background-color: rgba(255, 255, 255, 0.2) !important;
         border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    /* Replace "app" with "Home" in sidebar navigation */
+    [data-testid="stSidebarNav"] ul li:first-child a div p {
+        visibility: hidden;
+        position: relative;
+    }
+    [data-testid="stSidebarNav"] ul li:first-child a div p::before {
+        content: "🏠 Home";
+        visibility: visible;
+        position: absolute;
+        left: 0;
+        top: 0;
     }
     /* Metric cards */
     div[data-testid="stMetricValue"] {
