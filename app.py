@@ -12,6 +12,91 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+# Custom CSS - Business Professional Theme
+st.markdown("""
+<style>
+    /* Business Professional Theme - Greens & Teals */
+    .main-header {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #16a085;
+        margin-bottom: 0.5rem;
+        border-bottom: 3px solid #1abc9c;
+        padding-bottom: 0.5rem;
+    }
+    .sub-header {
+        font-size: 1.2rem;
+        color: #34495e;
+        margin-bottom: 2rem;
+    }
+    /* Sidebar styling */
+    [data-testid="stSidebar"] {
+        background: linear-gradient(180deg, #16a085 0%, #1abc9c 100%);
+    }
+    [data-testid="stSidebar"] * {
+        color: white !important;
+    }
+    [data-testid="stSidebar"] .stButton button {
+        background-color: white;
+        color: #16a085 !important;
+        font-weight: bold;
+        border: 2px solid white;
+    }
+    [data-testid="stSidebar"] .stButton button:hover {
+        background-color: #ecf0f1;
+        border-color: #ecf0f1;
+    }
+    /* Metric cards */
+    div[data-testid="stMetricValue"] {
+        font-size: 2rem;
+        color: #16a085;
+        font-weight: bold;
+    }
+    /* Status badges */
+    .badge-success {
+        background-color: #27ae60;
+        color: white;
+        padding: 0.3rem 0.8rem;
+        border-radius: 0.3rem;
+        font-weight: 600;
+    }
+    .badge-warning {
+        background-color: #f39c12;
+        color: white;
+        padding: 0.3rem 0.8rem;
+        border-radius: 0.3rem;
+        font-weight: 600;
+    }
+    .badge-danger {
+        background-color: #e74c3c;
+        color: white;
+        padding: 0.3rem 0.8rem;
+        border-radius: 0.3rem;
+        font-weight: 600;
+    }
+    .badge-info {
+        background-color: #3498db;
+        color: white;
+        padding: 0.3rem 0.8rem;
+        border-radius: 0.3rem;
+        font-weight: 600;
+    }
+    /* Headers */
+    h1, h2, h3 {
+        color: #2c3e50;
+    }
+    /* Links */
+    a {
+        color: #16a085;
+        text-decoration: none;
+    }
+    a:hover {
+        color: #1abc9c;
+        text-decoration: underline;
+    }
+</style>
+""", unsafe_allow_html=True)
+
 # Sidebar info
 st.sidebar.markdown("# 💼 OpenSAM")
 st.sidebar.markdown("*Software Asset Management*")
