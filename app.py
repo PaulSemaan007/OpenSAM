@@ -5,7 +5,44 @@ from datetime import datetime, timedelta
 import plotly.express as px
 import plotly.graph_objects as go
 
-st.set_page_config(page_title="OpenSAM", layout="wide")
+st.set_page_config(
+    page_title="OpenSAM - Software Asset Management",
+    page_icon="💼",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
+# Sidebar info
+st.sidebar.markdown("# 💼 OpenSAM")
+st.sidebar.markdown("*Software Asset Management*")
+st.sidebar.markdown("---")
+st.sidebar.markdown("### About")
+st.sidebar.info(
+    "OpenSAM helps IT teams track software licenses, optimize spending, "
+    "maintain compliance, and eliminate wasteful subscriptions."
+)
+
+st.sidebar.markdown("### Free vs Pro")
+st.sidebar.markdown("""
+**Free (Current)**
+- Single-user mode
+- CSV data storage
+- All core features
+- 5 analysis modules
+
+**Pro Version**
+- Multi-user with auth
+- Database backend
+- ServiceNow integration
+- Automated renewals
+- Custom branding
+- Priority support
+""")
+
+if st.sidebar.button("🚀 Upgrade to Pro"):
+    st.sidebar.success("Contact: paulsemaan007@gmail.com")
+
+st.sidebar.markdown("---")
 
 st.title("OpenSAM — Software Asset Management (Starter)")
 
